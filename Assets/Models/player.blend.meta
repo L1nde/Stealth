@@ -35,6 +35,36 @@ ModelImporter:
     100058: toe_R
     100060: upper_arm_L
     100062: upper_arm_R
+    100064: forearm_L_001
+    100066: forearm_L_002
+    100068: forearm_L_003
+    100070: forearm_R_001
+    100072: forearm_R_002
+    100074: forearm_R_003
+    100076: hand_L_001
+    100078: hand_L_002
+    100080: hand_L_003
+    100082: hand_L_004
+    100084: hand_L_005
+    100086: hand_L_006
+    100088: hand_L_007
+    100090: hand_L_008
+    100092: hand_L_009
+    100094: hand_L_010
+    100096: hand_L_011
+    100098: hand_L_012
+    100100: hand_R_001
+    100102: hand_R_002
+    100104: hand_R_003
+    100106: hand_R_004
+    100108: hand_R_005
+    100110: hand_R_006
+    100112: hand_R_007
+    100114: hand_R_008
+    100116: hand_R_009
+    100118: hand_R_010
+    100120: hand_R_011
+    100122: hand_R_012
     400000: breast_L
     400002: breast_R
     400004: Cube
@@ -67,9 +97,43 @@ ModelImporter:
     400058: toe_R
     400060: upper_arm_L
     400062: upper_arm_R
+    400064: forearm_L_001
+    400066: forearm_L_002
+    400068: forearm_L_003
+    400070: forearm_R_001
+    400072: forearm_R_002
+    400074: forearm_R_003
+    400076: hand_L_001
+    400078: hand_L_002
+    400080: hand_L_003
+    400082: hand_L_004
+    400084: hand_L_005
+    400086: hand_L_006
+    400088: hand_L_007
+    400090: hand_L_008
+    400092: hand_L_009
+    400094: hand_L_010
+    400096: hand_L_011
+    400098: hand_L_012
+    400100: hand_R_001
+    400102: hand_R_002
+    400104: hand_R_003
+    400106: hand_R_004
+    400108: hand_R_005
+    400110: hand_R_006
+    400112: hand_R_007
+    400114: hand_R_008
+    400116: hand_R_009
+    400118: hand_R_010
+    400120: hand_R_011
+    400122: hand_R_012
     2100000: Material
     4300000: Cube
     7400000: Default Take
+    7400002: metarigAction
+    7400004: Walking
+    7400006: goSneak
+    7400008: Sneak
     9500000: //RootNode
     13700000: Cube
     2186277476908879412: ImportLogs
@@ -100,7 +164,119 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 63
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walking
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 63
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: goSneak
+      takeName: goSneak
+      firstFrame: -1
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Sneak
+      takeName: Sneak
+      firstFrame: -1
+      lastFrame: 63
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -124,7 +300,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.2
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
@@ -145,6 +321,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
