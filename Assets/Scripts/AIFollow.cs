@@ -6,13 +6,15 @@ using UnityEngine.AI;
 public class AIFollow : MonoBehaviour {
 
     private NavMeshAgent agent;
+    private Animator animator;
 
     public float chaseTime;
     private float currentChaseTime;
 
     // Use this for initialization
     void Start () {
-        agent = gameObject.GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         currentChaseTime = 0;
     }
 	
@@ -22,6 +24,7 @@ public class AIFollow : MonoBehaviour {
 
         if (currentChaseTime <= chaseTime / 2) {
             if (IsInSight(playerPos)) {
+                animator.SetBool("walking", true);
                 currentChaseTime = chaseTime;
                 agent.isStopped = false;
                 GoTo(playerPos);
@@ -32,8 +35,10 @@ public class AIFollow : MonoBehaviour {
             GoTo(playerPos);
             currentChaseTime -= Time.deltaTime;
         }
-        else if (!agent.hasPath)
+        else if (!agent.hasPath) {
             agent.isStopped = true;
+            animator.SetBool("walking", false);
+        }
     }
 
 
