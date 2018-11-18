@@ -9,6 +9,9 @@ public class AIFollow : MonoBehaviour {
     private Animator animator;
 
     public float chaseTime;
+    public Transform[] points;
+
+    private int destPoint = 0;
     private float currentChaseTime;
 
     // Use this for initialization
@@ -16,6 +19,8 @@ public class AIFollow : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         currentChaseTime = 0;
+        agent.autoBraking = false;
+        GotoNextPoint();
     }
 	
 	// Update is called once per frame
@@ -36,9 +41,12 @@ public class AIFollow : MonoBehaviour {
             currentChaseTime -= Time.deltaTime;
         }
         else if (!agent.hasPath) {
-            agent.isStopped = true;
             animator.SetBool("walking", false);
+            if (points.Length != 0)
+                agent.destination = points[destPoint].position;
         }
+        else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            GotoNextPoint();
     }
 
 
@@ -46,8 +54,10 @@ public class AIFollow : MonoBehaviour {
     {
         Vector3 dirToTarget = targetLoc - transform.position;
 
+        float d = Vector3.Dot(dirToTarget, transform.forward);
+        // if player is in field of view of the bot and not behind a wall
         if (!Physics.Raycast(transform.position, dirToTarget, Vector3.Distance(transform.position, targetLoc),
-            LayerMask.GetMask("Wall"))) {
+            LayerMask.GetMask("Wall")) && d > 0) {
             return true;
         }
         return false;
@@ -55,5 +65,15 @@ public class AIFollow : MonoBehaviour {
 
     private void GoTo(Vector3 targetLoc) {
         agent.destination = targetLoc;
+    }
+
+    void GotoNextPoint()
+    {
+        // Returns if no points have been set up
+        if (points.Length == 0)
+            return;
+
+        agent.destination = points[destPoint].position;
+        destPoint = (destPoint + 1) % points.Length;
     }
 }

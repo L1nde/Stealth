@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4dd3f2adffd17c44c887ff99b606dc01
+guid: 36c0f97a0849bbd4e8d481dd0d5060f0
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -43,8 +43,8 @@ ModelImporter:
     7400000: Default Take
     7400002: Look
     7400004: Look_001
-    7400006: Untitled_002
-    7400008: Untitled_003
+    7400006: NewWalk
+    7400008: StartToWalk
     7400010: Untitled_006
     7400012: Walk
     9500000: //RootNode
