@@ -3,16 +3,15 @@ using UnityEngine;
 
 namespace Assets {
     public class PlayerController : MonoBehaviour {
+
+        public Animator animator;
+        private Boolean crouched = false;
         private CharacterController controller;
-
-        private float sensitivity = 1.0f;
-
-        public Boolean invertedY = false;
         public float speed = 1;
         public float jumpPower = 1;
         private float jumpAlt = 0;
 
-        public Camera camera;
+        
 
         // Use this for initialization
         void Start() {
@@ -53,21 +52,17 @@ namespace Assets {
                 movement.y = jumpAlt;
             }
 
-            float inverted = -1;
-            if (invertedY) {
-                inverted = 1;
+            if (Input.GetKeyDown(KeyCode.LeftShift)){
+                crouched = !crouched;
+                if (crouched){
+                    animator.SetTrigger("goSneak");
+                } else {
+                    animator.SetTrigger("standUp");
+                }
+                
             }
-
-            float xRot = Input.GetAxis("Mouse Y") * sensitivity * inverted + camera.transform.eulerAngles.x;
-            if (xRot > 89 && xRot < 271) {
-                xRot = camera.transform.eulerAngles.x;
-            }
-
-
-            camera.transform.eulerAngles =
-                new Vector3(xRot, camera.transform.eulerAngles.y, camera.transform.eulerAngles.z);
-            transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * sensitivity, 0);
-
+            animator.SetFloat("speed", Mathf.Sqrt(Mathf.Pow(movement.x, 2) + Mathf.Pow(movement.z, 2)));
+            
             controller.Move(new Vector3(movement.z * Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
                                         Mathf.Sin(
                                             (90f + transform.eulerAngles.y) * Mathf.Deg2Rad), movement.y,
