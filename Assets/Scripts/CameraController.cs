@@ -28,7 +28,6 @@ public class CameraController : MonoBehaviour {
 			xRot = transform.eulerAngles.x;
 		}
 		// transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, Mathf.Clamp(transform.rotation.w, -0.5f, 0.5f));
-		Debug.Log(transform.rotation);
 		
 		// transform.up = Vector3.up;
 		transform.eulerAngles = new Vector3(xRot, transform.eulerAngles.y, transform.eulerAngles.z);

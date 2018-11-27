@@ -6,24 +6,51 @@ ModelImporter:
     100000: Door
     100002: //RootNode
     100004: handle
+    100006: HingeBot
+    100008: HingeTop
+    100010: HingeTop_001
+    100012: DoorFrame
+    100014: HingeBot_001
     400000: Door
     400002: //RootNode
     400004: handle
-    2100000: Material
-    2100002: Material_001
-    2100004: unnamed
+    400006: HingeBot
+    400008: HingeTop
+    400010: HingeTop_001
+    400012: DoorFrame
+    400014: HingeBot_001
+    2100000: unnamed
+    2100002: Material
+    2100004: Material_001
+    2100006: Material_003
+    2100008: Material_004
+    2100010: Material_002
+    2100012: Material_005
     2300000: Door
-    2300002: //RootNode
-    2300004: handle
+    2300002: handle
+    2300004: HingeBot
+    2300006: HingeTop
+    2300008: HingeTop_001
+    2300010: DoorFrame
+    2300012: HingeBot_001
+    2300014: //RootNode
     3300000: Door
-    3300002: //RootNode
-    3300004: handle
-    4300000: DoorFrame
-    4300002: Door
-    4300004: handle
+    3300002: handle
+    3300004: HingeBot
+    3300006: HingeTop
+    3300008: HingeTop_001
+    3300010: DoorFrame
+    3300012: HingeBot_001
+    3300014: //RootNode
+    4300000: HingeTop_001
+    4300002: HingeTop
+    4300004: Door
+    4300006: handle
+    4300008: HingeBot
+    4300010: DoorFrame
+    4300012: HingeBot_001
+    4300014: Frame
     7400000: Default Take
-    7400002: DoorOpenForw
-    7400004: DoorOpenBack
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -52,95 +79,11 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Default Take
-      takeName: Default Take
-      firstFrame: -1
-      lastFrame: 249
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: DoorOpenForw
-      takeName: Default Take
-      firstFrame: 0
-      lastFrame: 32
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: DoorOpenBack
-      takeName: Default Take
-      firstFrame: 0
-      lastFrame: 32
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.3
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -160,7 +103,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 0.2
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
