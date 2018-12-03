@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour {
+public class DoorController : Interactable {
 
-    public Transform door;
     public float rate;
 
-    private bool open = false;
-    private bool close;
+    private bool opened = false;
+    private bool closed = true;
     private float direction = 1;
 
 	// Use this for initialization
@@ -18,22 +18,31 @@ public class DoorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (open) {
-	        door.transform.rotation = Quaternion.RotateTowards(door.rotation, Quaternion.Euler(270f, 0f, -110f), rate * Time.deltaTime * direction);
+	    if (opened) {
+	        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(270f, 0f, -110f), rate * Time.deltaTime * direction);
         }
-	    if (close) {
-	        door.transform.rotation = Quaternion.RotateTowards(door.rotation, Quaternion.Euler(270f, 0f, 0f), rate * Time.deltaTime * direction);
-	    }
+	    if (closed) {
+	        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(270f, 0f, 0f), rate * Time.deltaTime * direction);
+        }
 
     }
 
-    public void openDoor(float direction) {
-        open = true;
-        this.direction = direction;
+    public override void interact() {
+        if (opened) {
+            closeDoor();
+        } else if (closed) {
+            openDoor();
+        }
     }
 
-    public void closeDoor() {
-        close = true;
-        open = false;
+    private void openDoor() {
+        opened = true;
+        closed = false;
+        this.direction = 1f;
+    }
+
+    private void closeDoor() {
+        closed = true;
+        opened = false;
     }
 }

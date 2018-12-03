@@ -48,6 +48,10 @@ namespace Assets {
                 movement = new Vector3(movement.x, movement.y, -1);
             }
 
+//            if (Input.GetKey(KeyCode.LeftShift)) {
+//                movement = new Vector3(movement.x, movement.y, movement.z * 2);
+//            }
+
             if (controller.isGrounded && Input.GetKey(KeyCode.Space)) {
                 jumpAlt = jumpPower;
             }
@@ -56,7 +60,7 @@ namespace Assets {
                 movement.y = jumpAlt;
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift)){
+            if (Input.GetKeyDown(KeyCode.C)){
                 crouched = !crouched;
                 if (crouched){
                     animator.SetTrigger("goSneak");

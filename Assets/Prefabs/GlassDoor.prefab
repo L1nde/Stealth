@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23473799409596876}
   - component: {fileID: 95224347544104690}
   - component: {fileID: 64035555815950462}
-  - component: {fileID: 114722749193655488}
   m_Layer: 0
   m_Name: GlassDoor
   m_TagString: Untagged
@@ -42,9 +41,10 @@ GameObject:
   - component: {fileID: 33220384115747834}
   - component: {fileID: 23469192337487088}
   - component: {fileID: 65287616358074472}
-  m_Layer: 0
+  - component: {fileID: 114664340525588742}
+  m_Layer: 10
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1081227892671288}
   m_LocalRotation: {x: 0.7071067, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.05, y: 0.63, z: -54.76}
+  m_LocalPosition: {x: 1.96, y: 0.63, z: -54.76}
   m_LocalScale: {x: 0.0969078, y: 0.12290462, z: 0.26540625}
   m_Children:
   - {fileID: 4654320037300116}
@@ -210,16 +210,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114722749193655488
+--- !u!114 &114664340525588742
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1081227892671288}
+  m_GameObject: {fileID: 1422331191492540}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31e94fccf91f2184287d55c2174cc8bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 4654320037300116}
-  rate: 10
+  rate: 100
