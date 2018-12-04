@@ -29,7 +29,8 @@ public class AIFollow : MonoBehaviour {
 
         if (currentChaseTime <= chaseTime / 2) {
             if (IsInSight(playerPos)) {
-                animator.SetBool("walking", true);
+                animator.SetTrigger("Run");
+                agent.speed = 5;
                 currentChaseTime = chaseTime;
                 agent.isStopped = false;
                 GoTo(playerPos);
@@ -41,9 +42,12 @@ public class AIFollow : MonoBehaviour {
             currentChaseTime -= Time.deltaTime;
         }
         else if (!agent.hasPath) {
-            animator.SetBool("walking", false);
-            if (points.Length != 0)
+
+            if (points.Length != 0) {
                 agent.destination = points[destPoint].position;
+            }
+            else
+                animator.SetTrigger("Look");
         }
         else if (!agent.pathPending && agent.remainingDistance < 0.5f)
             GotoNextPoint();
@@ -72,7 +76,8 @@ public class AIFollow : MonoBehaviour {
         // Returns if no points have been set up
         if (points.Length == 0)
             return;
-
+        animator.SetTrigger("Walk");
+        agent.speed = 2;
         agent.destination = points[destPoint].position;
         destPoint = (destPoint + 1) % points.Length;
     }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36c0f97a0849bbd4e8d481dd0d5060f0
+guid: d92358e82ec8e274bafb68c40c43c324
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -38,15 +38,18 @@ ModelImporter:
     400030: RightLeg
     400032: RightShould
     2100000: Material__enemycolorMapping
-    2100002: Material
     4300000: Cube
     7400000: Default Take
     7400002: Look
-    7400004: Look_001
-    7400006: NewWalk
-    7400008: StartToWalk
-    7400010: Untitled_006
-    7400012: Walk
+    7400004: Look_002
+    7400006: newRun
+    7400008: newStartToWalk3
+    7400010: NewWalk
+    7400012: newWalk3
+    7400014: newWalk3_001
+    7400016: newWalk3_002
+    7400018: StartToWalk
+    7400020: Untitled_006
     9500000: //RootNode
     13700000: Cube
   externalObjects: {}
