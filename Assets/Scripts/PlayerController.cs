@@ -6,16 +6,15 @@ namespace Assets {
 
         public Animator animator;
         private Boolean crouched = false;
-        private CharacterController controller;
+        private Rigidbody rb;
         public float speed = 1;
         public float jumpPower = 1;
-        private float jumpAlt = 0;
 
         
 
         // Use this for initialization
         void Start() {
-            controller = GetComponent<CharacterController>();
+            rb = GetComponent<Rigidbody>();
 
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -33,31 +32,31 @@ namespace Assets {
             
             Vector3 movement = Vector3.zero;
             if (Input.GetKey(KeyCode.A)) {
-                movement = new Vector3(-1, movement.y, movement.z);
+                movement = new Vector3(-speed, movement.y, movement.z);
             }
 
             if (Input.GetKey(KeyCode.D)) {
-                movement = new Vector3(1, movement.y, movement.z);
+                movement = new Vector3(speed, movement.y, movement.z);
             }
 
             if (Input.GetKey(KeyCode.W)) {
-                movement = new Vector3(movement.x, movement.y, 1);
+                movement = new Vector3(movement.x, movement.y, speed);
             }
 
             if (Input.GetKey(KeyCode.S)) {
-                movement = new Vector3(movement.x, movement.y, -1);
+                movement = new Vector3(movement.x, movement.y, -speed);
             }
 
-//            if (Input.GetKey(KeyCode.LeftShift)) {
-//                movement = new Vector3(movement.x, movement.y, movement.z * 2);
-//            }
-
-            if (controller.isGrounded && Input.GetKey(KeyCode.Space)) {
-                jumpAlt = jumpPower;
+            if (isgrounded() && Input.GetKeyDown(KeyCode.Space)) {
+               rb.AddForce(new Vector3(0, jumpPower, 0));
             }
-            else if (!controller.isGrounded) {
-                jumpAlt += Physics.gravity.y * Time.deltaTime;
-                movement.y = jumpAlt;
+
+            if (!crouched && Input.GetKey(KeyCode.LeftShift)) {
+                movement *= 2;
+            }
+
+            if (crouched) {
+                movement *= 0.5f;
             }
 
             if (Input.GetKeyDown(KeyCode.C)){
@@ -67,17 +66,15 @@ namespace Assets {
                 } else {
                     animator.SetTrigger("standUp");
                 }
-                
             }
-            animator.SetFloat("speed", Mathf.Sqrt(Mathf.Pow(movement.x, 2) + Mathf.Pow(movement.z, 2)));
-            
-            controller.Move(new Vector3(movement.z * Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
-                                        Mathf.Sin(
-                                            (90f + transform.eulerAngles.y) * Mathf.Deg2Rad), movement.y,
-                                movement.z * Mathf.Cos(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
-                                Mathf.Cos(
-                                    (90f + transform.eulerAngles.y) * Mathf.Deg2Rad)).normalized * speed *
-                            Time.deltaTime);
+            animator.SetFloat("dirX", movement.x);
+            animator.SetFloat("dirZ", movement.z);
+            rb.velocity = new Vector3(movement.z * Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x * Mathf.Sin((90f + transform.eulerAngles.y) * Mathf.Deg2Rad), rb.velocity.y, movement.z * Mathf.Cos(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
+                                Mathf.Cos((90f + transform.eulerAngles.y) * Mathf.Deg2Rad));
+        }
+
+        private bool isgrounded() {
+            return  Physics.Raycast(transform.position, -Vector3.up, 0.1f);
         }
     }
 }

@@ -1,39 +1,15 @@
 fileFormatVersion: 2
-guid: 21669970a65f43347aac6d8fdf220f8e
+guid: e90c0da8dffd18448b839f267a819eee
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Computer
-    100002: //RootNode
-    100004: Keyboard
-    100006: Mouse
-    100008: Screen
-    400000: Computer
-    400002: //RootNode
-    400004: Keyboard
-    400006: Mouse
-    400008: Screen
-    2100000: Material_005
-    2100002: Material_006
-    2100004: unnamed
-    2100006: Material_003
-    2100008: Material_004
-    2100010: Material_002
-    2100012: Material
-    2100014: Material_001
-    2100016: Material_001__DesktopScreen_png
-    2300000: Computer
-    2300002: Keyboard
-    2300004: Mouse
-    2300006: Screen
-    3300000: Computer
-    3300002: Keyboard
-    3300004: Mouse
-    3300006: Screen
-    4300000: Keyboard
-    4300002: Mouse
-    4300004: Computer
-    4300006: Screen
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Material_002
+    2100002: Material_001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Chair
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -67,7 +43,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.3
+    globalScale: 0.325
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -87,7 +63,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.3
+    previousCalculatedGlobalScale: 0.35
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60

@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour {
 	public Vector3 offset;
 	public Transform head;
 	public Boolean invertedY = false;
-	public CharacterController controller;
+	public Rigidbody rb;
 	private float sensitivity = 1.0f;
 	private Quaternion currentRotation;
 	
@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour {
 		
 		// transform.up = Vector3.up;
 		transform.eulerAngles = new Vector3(xRot, transform.eulerAngles.y, transform.eulerAngles.z);
-		controller.transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * sensitivity, 0);
+		rb.transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * sensitivity, 0);
 
 	}
 }
