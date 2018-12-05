@@ -19,10 +19,10 @@ public class DoorController : Interactable {
 	// Update is called once per frame
 	void Update () {
 	    if (opened) {
-	        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(270f, 0f, -110f), rate * Time.deltaTime * direction);
+	        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(180f, 0f, 110f), rate * Time.deltaTime * direction);
         }
 	    if (closed) {
-	        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(270f, 0f, 0f), rate * Time.deltaTime * direction);
+	        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(180f, 0f, 0f), rate * Time.deltaTime * direction);
         }
 
     }
