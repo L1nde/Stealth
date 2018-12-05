@@ -14,11 +14,10 @@ namespace Assets.Scripts {
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 5f, LayerMask.GetMask("Interactable"))) {
                 Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward* hit.distance, Color.red);
                 UIController.instance.enableInteractable();
-                if (hit.transform.tag == "Door") {
-                    if (Input.GetKeyDown(KeyCode.E)) {
-                        hit.collider.gameObject.GetComponent<Interactable>().interact();
-                    }
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    hit.collider.gameObject.GetComponent<Interactable>().interact();
                 }
+                
             }
             else {
                 UIController.instance.disableInteractable();
