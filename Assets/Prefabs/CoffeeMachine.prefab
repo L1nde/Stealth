@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23841931030954148}
   - component: {fileID: 95324206627062934}
   - component: {fileID: 65951530163408442}
+  - component: {fileID: 114309007679742558}
   m_Layer: 0
   m_Name: CoffeeMachine
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 4087605456288118}
   - component: {fileID: 33713220302716522}
   - component: {fileID: 23950047274174988}
+  - component: {fileID: 114654941335988320}
   m_Layer: 0
   m_Name: Cup0
   m_TagString: Untagged
@@ -57,6 +59,7 @@ GameObject:
   - component: {fileID: 4222098738909692}
   - component: {fileID: 33864578784833360}
   - component: {fileID: 23820295903865532}
+  - component: {fileID: 114960507472406246}
   m_Layer: 0
   m_Name: Cup1
   m_TagString: Untagged
@@ -156,7 +159,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100002, guid: f5e50424f49a98b4c9221276491933f4, type: 3}
+  - {fileID: 2100000, guid: ff6a2c895d0ecbd4db692b15f6868ed5, type: 2}
   - {fileID: 2100000, guid: ec5e0ca593dcf3e439ef863d905cabd4, type: 2}
   - {fileID: 2100000, guid: ec5e0ca593dcf3e439ef863d905cabd4, type: 2}
   - {fileID: 2100000, guid: ec5e0ca593dcf3e439ef863d905cabd4, type: 2}
@@ -268,3 +271,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114309007679742558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1583582720948736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca95e16e6665adf4b85e86726de05835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114654941335988320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796566434571188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cdb6a117da9674d83536bddea164f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114960507472406246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994255625540240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cdb6a117da9674d83536bddea164f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
