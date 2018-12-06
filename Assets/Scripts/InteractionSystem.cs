@@ -17,7 +17,6 @@ namespace Assets.Scripts {
                 if (Input.GetKeyDown(KeyCode.E)) {
                     hit.collider.gameObject.GetComponent<Interactable>().interact();
                 }
-                
             }
             else {
                 UIController.instance.disableInteractable();
