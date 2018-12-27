@@ -3,9 +3,11 @@
 namespace Assets.Scripts {
     public class InteractionSystem : MonoBehaviour {
 
+
+        private ItemHolding holding;
         // Use this for initialization
         void Start () {
-		
+            holding = GetComponent<ItemHolding>();
         }
 	
         // Update is called once per frame
