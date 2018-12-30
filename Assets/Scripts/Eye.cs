@@ -25,7 +25,6 @@ public class Eye : MonoBehaviour {
         Vector3 dirToTarget = targetLoc - transform.position;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc))) {
-            Debug.Log(hit.collider.tag);
             if (hit.collider.tag == "Player") {
                 return true;
             }
