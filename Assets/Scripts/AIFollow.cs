@@ -15,6 +15,7 @@ public class AIFollow : MonoBehaviour {
     private Vector3 spawnPos;
     private int destPoint = 0;
     private float currentChaseTime;
+    private bool reactedToNoise;
 
     // Use this for initialization
     void Start () {
@@ -89,6 +90,22 @@ public class AIFollow : MonoBehaviour {
     public void walkTo(Vector3 targetLoc) {
         animator.SetTrigger("Walk");
         GoTo(targetLoc);
+    }
+
+    private IEnumerator delayedWalkCoroutine(Vector3 targetLoc) {
+        if (currentChaseTime <= 0 && !reactedToNoise) {
+            reactedToNoise = true;
+            for (float i = 2; i > 0; i--) {
+                Debug.Log(reactedToNoise);
+                yield return new WaitForSeconds(1f);
+            }
+            walkTo(targetLoc);
+        }
+        reactedToNoise = false;
+    }
+
+    public void delayedWalk(Vector3 targetLoc) {
+        StartCoroutine("delayedWalkCoroutine", targetLoc);
     }
 
 

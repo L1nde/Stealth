@@ -5,17 +5,25 @@ using UnityEngine.AI;
 
 public class NoiseListener : MonoBehaviour {
     private NavMeshAgent nav;
+    private AIFollow enemAiFollow;
 
     void Start() {
         nav = GetComponent<NavMeshAgent>();
+        enemAiFollow = GetComponent<AIFollow>();
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(canHearNoise(other.transform.position, ((SphereCollider)other).radius));
+        reactToNoise((SphereCollider) other);
     }
 
     private void OnTriggerStay(Collider other) {
-        Debug.Log(canHearNoise(other.transform.position, ((SphereCollider)other).radius));
+        reactToNoise((SphereCollider)other);
+    }
+
+    private void reactToNoise(SphereCollider other) {
+        if (canHearNoise(other.transform.position,other.radius)) {
+            enemAiFollow.delayedWalk(other.transform.position);
+        }
     }
 
 
