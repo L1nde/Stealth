@@ -10,6 +10,7 @@ public class AIFollow : MonoBehaviour {
 
     public float chaseTime;
     public Transform[] points;
+    public Eye eye;
 
     private Vector3 spawnPos;
     private int destPoint = 0;
@@ -23,14 +24,16 @@ public class AIFollow : MonoBehaviour {
         agent.autoBraking = false;
         GotoNextPoint();
         spawnPos = transform.position;
+        eye = GetComponentInChildren<Eye>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+	    var player = GameObject.FindGameObjectWithTag("Player");
+	    Vector3 playerPos = player.transform.position;
 
         if (currentChaseTime <= chaseTime / 2) {
-            if (IsInSight(playerPos)) 
+            if (eye.canSeePlayer(player)) 
                 followPlayer(playerPos);
         }
 
@@ -100,22 +103,9 @@ public class AIFollow : MonoBehaviour {
         destPoint = (destPoint + 1) % points.Length;
     }
 
-    public bool IsInSight(Vector3 targetLoc) {
-        Vector3 dirToTarget = targetLoc - transform.position;
-        float d = Vector3.Dot(dirToTarget, transform.forward);
-
-        if (notBehindWall(targetLoc) && d > 0) {
-            return true;
-        }
-        return false;
+    public bool notBehindWall(Vector3 target) {
+        return eye.notBehindWall(target);
     }
 
-    public bool notBehindWall(Vector3 targetLoc) {
-        Vector3 dirToTarget = targetLoc - transform.position;
 
-        if (!Physics.Raycast(transform.position, dirToTarget, Vector3.Distance(transform.position, targetLoc), LayerMask.GetMask("Wall"))) {
-            return true;
-        }
-        return false;
-    }
 }
