@@ -10,6 +10,7 @@ namespace Assets {
         private Rigidbody rb;
         public float speed = 1;
         public float jumpPower = 1;
+        public bool isInDark = false;
         
 
         

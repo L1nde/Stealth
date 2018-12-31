@@ -8,7 +8,6 @@ public class Holdable : MonoBehaviour {
     // Use this for initialization
     void Start () {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
     }
 	
 	// Update is called once per frame
