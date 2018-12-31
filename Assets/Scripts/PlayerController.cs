@@ -6,14 +6,17 @@ namespace Assets {
 
         public Animator animator;
         private Boolean crouched = false;
+        private NoiseMaker noiseMaker;
         private Rigidbody rb;
         public float speed = 1;
         public float jumpPower = 1;
+        
 
         
 
         // Use this for initialization
         void Start() {
+            noiseMaker = GetComponent<NoiseMaker>();
             rb = GetComponent<Rigidbody>();
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -67,6 +70,7 @@ namespace Assets {
                     animator.SetTrigger("standUp");
                 }
             }
+            noiseMaker.makeNoise(movement.magnitude);
             animator.SetFloat("dirX", movement.x);
             animator.SetFloat("dirZ", movement.z);
             rb.velocity = new Vector3(movement.z * Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x * Mathf.Sin((90f + transform.eulerAngles.y) * Mathf.Deg2Rad), rb.velocity.y, movement.z * Mathf.Cos(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
