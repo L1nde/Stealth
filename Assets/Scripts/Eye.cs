@@ -12,9 +12,9 @@ public class Eye : MonoBehaviour {
     public bool isInSight(Vector3 targetLoc) {
         Vector3 dirToTarget = targetLoc - transform.position;
         float d = Vector3.Dot(dirToTarget, transform.forward);
-        Debug.DrawRay(transform.position, dirToTarget * 10, Color.red);
-        if (notBehindWall(targetLoc) && d > 0) {
-
+        float angle = Mathf.Abs(Vector3.Angle(transform.forward, dirToTarget));
+        if (notBehindWall(targetLoc) && angle <= 75f) {
+            Debug.DrawRay(transform.position, dirToTarget * 10, Color.red);
             return true;
         }
         return false;
@@ -25,7 +25,6 @@ public class Eye : MonoBehaviour {
         Vector3 dirToTarget = targetLoc - transform.position;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc))) {
-            Debug.Log(hit.collider.tag);
             if (hit.collider.tag == "Player") {
                 return true;
             }

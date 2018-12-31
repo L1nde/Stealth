@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4026490740062518}
-  m_Layer: 0
+  - component: {fileID: 114848235833888698}
+  m_Layer: 13
   m_Name: Eye
   m_TagString: EnemyEye
   m_Icon: {fileID: 0}
@@ -34,7 +35,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745420953434378}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back_008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4258925249912776}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +65,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791233194273912}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Leftleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +80,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4683438911880514}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4192706111328444}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftShould_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4411810515250776}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightShould
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4712118361213538}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4729536803509478}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftShould_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4505150132268288}
   - component: {fileID: 137350132696335182}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4151707146700438}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back_007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +190,8 @@ GameObject:
   - component: {fileID: 65030844679170150}
   - component: {fileID: 195446133616136192}
   - component: {fileID: 114848339873784662}
-  m_Layer: 0
+  - component: {fileID: 114804546357682604}
+  m_Layer: 13
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -204,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4173770166045504}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4138685659300722}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4813005907954278}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4679456572322836}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftShould
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4563475780945866}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Back_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4014199116954136}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +308,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1074766459835542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.963, z: 0}
+  m_LocalPosition: {x: 0, y: 8.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4466158023708460}
@@ -567,6 +569,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114804546357682604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464714504579938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf0edeb8d51dda4198a19cab43ed191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114848235833888698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074766459835542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50990a9058462df46823b8fcc5960e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114848339873784662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -580,7 +604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseTime: 1
   points: []
-  eye: {fileID: 4026490740062518}
+  eye: {fileID: 0}
 --- !u!137 &137350132696335182
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
