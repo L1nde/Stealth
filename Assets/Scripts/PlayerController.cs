@@ -8,8 +8,11 @@ namespace Assets {
         private Boolean crouched = false;
         private NoiseMaker noiseMaker;
         private Rigidbody rb;
-        public float speed = 1;
+        public float walkSpeed = 1;
+        public float sneakSpeed = 1;
+        public float runSpeed = 1;
         public float jumpPower = 1;
+        public bool isInDark = false;
         
 
         
@@ -33,33 +36,10 @@ namespace Assets {
                 UnityEditor.EditorApplication.isPlaying = false; // For Linux can't quit game in editor
             }
             
-            Vector3 movement = Vector3.zero;
-            if (Input.GetKey(KeyCode.A)) {
-                movement = new Vector3(-speed, movement.y, movement.z);
-            }
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-            if (Input.GetKey(KeyCode.D)) {
-                movement = new Vector3(speed, movement.y, movement.z);
-            }
-
-            if (Input.GetKey(KeyCode.W)) {
-                movement = new Vector3(movement.x, movement.y, speed);
-            }
-
-            if (Input.GetKey(KeyCode.S)) {
-                movement = new Vector3(movement.x, movement.y, -speed);
-            }
-
-            if (isgrounded() && Input.GetKeyDown(KeyCode.Space)) {
-               rb.AddForce(new Vector3(0, jumpPower, 0));
-            }
-
-            if (!crouched && Input.GetKey(KeyCode.LeftShift)) {
-                movement *= 2;
-            }
-
-            if (crouched) {
-                movement *= 0.5f;
+            if (isgrounded()) {
+               rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * jumpPower, 0));
             }
 
             if (Input.GetKeyDown(KeyCode.C)){
@@ -70,11 +50,22 @@ namespace Assets {
                     animator.SetTrigger("standUp");
                 }
             }
-            noiseMaker.makeNoise(movement.magnitude);
+            
+           
             animator.SetFloat("dirX", movement.x);
             animator.SetFloat("dirZ", movement.z);
-            rb.velocity = new Vector3(movement.z * Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x * Mathf.Sin((90f + transform.eulerAngles.y) * Mathf.Deg2Rad), rb.velocity.y, movement.z * Mathf.Cos(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
-                                Mathf.Cos((90f + transform.eulerAngles.y) * Mathf.Deg2Rad));
+            Vector3 mov = Vector3.ClampMagnitude(new Vector3(movement.z * Mathf.Sin(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x * Mathf.Sin((90f + transform.eulerAngles.y) * Mathf.Deg2Rad), 0, movement.z * Mathf.Cos(transform.eulerAngles.y * Mathf.Deg2Rad) + movement.x *
+                                Mathf.Cos((90f + transform.eulerAngles.y) * Mathf.Deg2Rad)), 1);
+            float speed = walkSpeed;
+            if (crouched) {
+                speed = sneakSpeed;
+            } else if (!crouched && Input.GetKey(KeyCode.LeftShift)) {
+                speed = runSpeed * Input.GetAxis("Run");
+            }
+            rb.velocity = new Vector3(mov.x * speed, rb.velocity.y, mov.z * speed);
+
+            noiseMaker.makeNoise(rb.velocity.magnitude);
+
         }
 
         private bool isgrounded() {

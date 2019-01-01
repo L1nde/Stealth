@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using Assets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Eye : MonoBehaviour {
 
     public bool canSeePlayer(GameObject player) {
-        return isInSight(player.transform.position) ||
-               isInSight(player.GetComponentInChildren<Camera>().transform.position);
+        bool isInDark = player.GetComponent<PlayerController>().isInDark;
+        return (isInSight(player.transform.position) ||
+               isInSight(player.GetComponentInChildren<Camera>().transform.position)) && !isInDark;
     }
 
     public bool isInSight(Vector3 targetLoc) {

@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using Assets.Scripts;
 using UnityEngine;
 
-public class CoffeeMachineController : Interactable {
+public class CoffeeMachineController : Interactable { //todo class is not being used. delete
+    private GameObject player;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public override void interact() {
-        var coffee = GetComponentInChildren<Coffee>();
-        coffee.gameObject.SetActive(false);
+        var coffee = GetComponentInChildren<Holdable>();
+        player.GetComponent<ItemHolding>().pickUp(coffee);
+        coffee.transform.parent = null;
         if (GetComponentInChildren<Coffee>() == null) {
             disable();
             return;

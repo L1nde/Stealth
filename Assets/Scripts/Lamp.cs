@@ -6,7 +6,7 @@ public class Lamp : MonoBehaviour {
 
     private GameObject darkness;
     private Light l;
-    public bool isTurnedOn;
+    
 
 	void Start () {
         darkness = transform.Find("Darkness").gameObject;
@@ -14,22 +14,20 @@ public class Lamp : MonoBehaviour {
         darkness.SetActive(false);
 	}
 
-    public void changeState() {
-        isTurnedOn = !isTurnedOn;
-        if (isTurnedOn)
-            turnOn();
-        else
-            turnOff();
+    
+
+    public void turnOn() {
+        if (l != null) {
+            l.gameObject.SetActive(true);
+            if (darkness != null)
+                darkness.gameObject.SetActive(false);
+        }
     }
 
-    private void turnOn() {
-        l.gameObject.SetActive(true);
-        darkness.gameObject.SetActive(false);
-    }
-
-    private void turnOff() {
+    public void turnOff() {
         l.gameObject.SetActive(false);
-        darkness.gameObject.SetActive(true);
+        if (darkness != null)
+            darkness.gameObject.SetActive(true);
     }
 
 }

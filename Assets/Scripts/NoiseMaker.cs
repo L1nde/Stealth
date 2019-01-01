@@ -17,8 +17,6 @@ public class NoiseMaker : MonoBehaviour {
 
     public void makeNoise(float amount) {
          noise.radius = amount;
-        
-        
     }
 
 }

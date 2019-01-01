@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,13 +13,17 @@ public class AIFollow : MonoBehaviour {
     public Transform[] points;
     public Eye eye;
 
+    public AudioClipGroup soundOnNoticePlayer;
+
     private Vector3 spawnPos;
     private int destPoint = 0;
     private float currentChaseTime;
     private bool reactedToNoise;
+    private bool followingPlayer;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
+        followingPlayer = false;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         currentChaseTime = 0;
@@ -27,14 +32,14 @@ public class AIFollow : MonoBehaviour {
         spawnPos = transform.position;
         eye = GetComponentInChildren<Eye>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	    var player = GameObject.FindGameObjectWithTag("Player");
-	    Vector3 playerPos = player.transform.position;
+
+    // Update is called once per frame
+    void Update() {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 playerPos = player.transform.position;
 
         if (currentChaseTime <= chaseTime / 2) {
-            if (eye.canSeePlayer(player)) 
+            if (eye.canSeePlayer(player))
                 followPlayer(playerPos);
         }
 
@@ -45,7 +50,7 @@ public class AIFollow : MonoBehaviour {
 
         // Get new Pos to go to
         else if (!agent.hasPath) {
-
+            followingPlayer = false;
             if (points.Length != 0) {
                 GotoNextPoint();
             }
@@ -54,15 +59,21 @@ public class AIFollow : MonoBehaviour {
             }
         }
         // Upon reaching the target pos
-        else if (!agent.pathPending && agent.remainingDistance < 1f)
-            if (points.Length == 0) {
+        else if (!agent.pathPending && agent.remainingDistance < 1f) {
+            followingPlayer = false;
+            if (points.Length == 0)
                 goToSpawn();
-            }
             else
                 GotoNextPoint();
+        }
     }
 
     private void followPlayer(Vector3 playerPos) {
+        if (!followingPlayer) {
+            soundOnNoticePlayer.playAtLocation(transform.position);
+            followingPlayer = true;
+        }
+        
         animator.SetTrigger("Run");
         agent.speed = 5;
         currentChaseTime = chaseTime;
@@ -74,10 +85,11 @@ public class AIFollow : MonoBehaviour {
     private void goToSpawn() {
         agent.speed = 2;
         animator.ResetTrigger("Run");
-        if (Vector3.Distance(spawnPos, transform.position) > 1f) { 
+        if (Vector3.Distance(spawnPos, transform.position) > 1f) {
             animator.SetTrigger("Walk");
             GoTo(spawnPos);
-        } else {
+        }
+        else {
             agent.destination = transform.position;
             animator.SetTrigger("Look");
         }
@@ -96,7 +108,6 @@ public class AIFollow : MonoBehaviour {
         if (currentChaseTime <= 0 && !reactedToNoise) {
             reactedToNoise = true;
             for (float i = 2; i > 0; i--) {
-                Debug.Log(reactedToNoise);
                 yield return new WaitForSeconds(1f);
             }
             walkTo(targetLoc);
@@ -109,8 +120,7 @@ public class AIFollow : MonoBehaviour {
     }
 
 
-    void GotoNextPoint()
-    {
+    void GotoNextPoint() {
         // Returns if no points have been set up
         if (points.Length == 0)
             return;

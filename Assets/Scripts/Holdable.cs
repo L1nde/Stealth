@@ -1,14 +1,16 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Holdable : MonoBehaviour {
 
     private GameObject[] enemies;
+
+    public AudioClipGroup onHitWall;
     // Use this for initialization
     void Start () {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
     }
 	
 	// Update is called once per frame
@@ -18,15 +20,28 @@ public class Holdable : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         float NoiseRange = collision.relativeVelocity.magnitude;
+        Debug.Log(NoiseRange);
+        
         if (NoiseRange < 3)
             return;
         else {
+            changeVol(NoiseRange);
+            onHitWall.playAtLocation(transform.position);
             AIFollow closestEnemy = getClosestEnemyToImpact(NoiseRange);
             if (closestEnemy == null)
                 return;
             closestEnemy.walkTo(transform.position);
 
         }
+    }
+
+    private void changeVol(float impactStrength) {
+        float newVolume = impactStrength / 10;
+        if (newVolume > 2)
+            newVolume = 2;
+        onHitWall.volumeMin = newVolume;
+        onHitWall.volumeMax = newVolume;
+
     }
 
     private AIFollow getClosestEnemyToImpact(float range) {
