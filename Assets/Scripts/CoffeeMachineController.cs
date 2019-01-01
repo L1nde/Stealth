@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts;
 using UnityEngine;
 
-public class CoffeeMachineController : Interactable {
+public class CoffeeMachineController : Interactable { //todo class is not being used. delete
     private GameObject player;
 
     void Start() {

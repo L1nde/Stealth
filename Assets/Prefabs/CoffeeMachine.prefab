@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23841931030954148}
   - component: {fileID: 95324206627062934}
   - component: {fileID: 65951530163408442}
-  - component: {fileID: 114309007679742558}
   - component: {fileID: 65386550815031958}
   m_Layer: 0
   m_Name: CoffeeMachine
@@ -288,8 +287,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4139678, y: 0.32276294, z: 0.3145286}
-  m_Center: {x: -0.03732683, y: 0.0015403912, z: 0.15726408}
+  m_Size: {x: 0.34472477, y: 0.26533207, z: 0.22035243}
+  m_Center: {x: -0.03995865, y: 0.00093204936, z: 0.11017599}
 --- !u!65 &65386550815031958
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -312,8 +311,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4139678, y: 0.32276294, z: 0.3145286}
-  m_Center: {x: -0.03732683, y: 0.0015403912, z: 0.15726408}
+  m_Size: {x: 0.33334416, y: 0.2598321, z: 0.2127176}
+  m_Center: {x: -0.040679343, y: -0.0029306845, z: 0.10635854}
 --- !u!65 &65951530163408442
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -344,17 +343,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114309007679742558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1583582720948736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca95e16e6665adf4b85e86726de05835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114654941335988320
 MonoBehaviour:
   m_ObjectHideFlags: 1
