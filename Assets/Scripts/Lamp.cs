@@ -19,13 +19,15 @@ public class Lamp : MonoBehaviour {
     public void turnOn() {
         if (l != null) {
             l.gameObject.SetActive(true);
-            darkness.gameObject.SetActive(false);
+            if (darkness != null)
+                darkness.gameObject.SetActive(false);
         }
     }
 
     public void turnOff() {
         l.gameObject.SetActive(false);
-        darkness.gameObject.SetActive(true);
+        if (darkness != null)
+            darkness.gameObject.SetActive(true);
     }
 
 }

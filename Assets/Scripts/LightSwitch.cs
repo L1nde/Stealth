@@ -7,6 +7,7 @@ public class LightSwitch : Interactable {
 
     public List<Lamp> lights;
     public bool isTurnedOn;
+    public AudioClipGroup sound;
 
     private void Start() {
         foreach (Lamp lamp in lights) 
@@ -14,6 +15,7 @@ public class LightSwitch : Interactable {
     }
 
     public override void interact() {
+        sound.play();
         isTurnedOn = !isTurnedOn;
         if (isTurnedOn)
             transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
