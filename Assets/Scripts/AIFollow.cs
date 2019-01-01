@@ -70,7 +70,7 @@ public class AIFollow : MonoBehaviour {
 
     private void followPlayer(Vector3 playerPos) {
         if (!followingPlayer) {
-            soundOnNoticePlayer.play();
+            soundOnNoticePlayer.playAtLocation(transform.position);
             followingPlayer = true;
         }
         

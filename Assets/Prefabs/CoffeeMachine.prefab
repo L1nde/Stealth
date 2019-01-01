@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c8cc8369ea1c244963feb96ff38685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitWall: {fileID: 11400000, guid: 87f1c58cd262b3541b3624fa59a7be2a, type: 2}
 --- !u!114 &114960507472406246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,3 +388,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c8cc8369ea1c244963feb96ff38685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitWall: {fileID: 11400000, guid: 87f1c58cd262b3541b3624fa59a7be2a, type: 2}

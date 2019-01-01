@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Assets.Scripts {
     public class AudioSourcePool : MonoBehaviour {
-
         private List<AudioSource> audios;
 
         private void Awake() {
@@ -17,7 +16,9 @@ namespace Assets.Scripts {
                 }
             }
 
-            var audioSource = FindObjectOfType<AudioSourcePool>().gameObject.AddComponent<AudioSource>();
+            var o = new GameObject("AudioSource");
+            o.transform.parent = transform;
+            AudioSource audioSource = o.AddComponent<AudioSource>();
             audios.Add(audioSource);
             return audioSource;
         }
@@ -30,7 +31,6 @@ namespace Assets.Scripts {
 	
         // Update is called once per frame
         void Update () {
-		
         }
     }
 }
