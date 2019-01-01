@@ -5,44 +5,47 @@ using UnityEngine;
 
 public class DoorController : Interactable {
 
-    public float rate;
+    public float duration = 2;
+    [Range(-1, 1)]
+    public int direction = 1;
 
-    private bool opened = false;
     private bool closed = true;
-    private float direction = 1;
+    private float elapsed;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    if (opened) {
-	        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(180f, 0f, 110f), rate * Time.deltaTime * direction);
-        }
-	    if (closed) {
-	        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.Euler(180f, 0f, 0f), rate * Time.deltaTime * direction);
-        }
 
-    }
 
     public override void interact() {
-        if (opened) {
-            closeDoor();
-        } else if (closed) {
-            openDoor();
+        StopCoroutine("openDoor");
+        StopCoroutine("closeDoor");
+        if (!closed) {
+            StartCoroutine("closeDoor");
+        } else {
+            StartCoroutine("openDoor");
         }
+        closed = !closed;
     }
 
-    private void openDoor() {
-        opened = true;
-        closed = false;
-        this.direction = 1f;
+    private IEnumerator openDoor() {
+        Quaternion from = Quaternion.Euler(180f, 0f, 0f);
+        Quaternion to = Quaternion.Euler(180f, 0f, 110f * direction);
+
+        while(elapsed < duration){
+            transform.localRotation = Quaternion.Slerp(from, to, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        elapsed = duration;
     }
 
-    private void closeDoor() {
-        closed = true;
-        opened = false;
+    private IEnumerator closeDoor() {
+        Quaternion from = Quaternion.Euler(180f, 0f, 0f);
+        Quaternion to = Quaternion.Euler(180f, 0f, 110f * direction);
+        
+        while (elapsed > 0) {
+            transform.localRotation = Quaternion.Slerp(from, to, elapsed / duration);
+            elapsed -= Time.deltaTime;
+            yield return null;
+        }
+        elapsed = 0f;
     }
 }

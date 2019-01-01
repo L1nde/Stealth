@@ -42,12 +42,16 @@ public class ItemHolding : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pickRange, LayerMask.GetMask("Pickable"))) {
-                currentlyHeld = hit.collider.gameObject.GetComponent<Holdable>();
-                currentlyHeld.GetComponent<Rigidbody>().isKinematic = true;
-                currentChargeTime = 0;
-                currentlyHeld.GetComponent<BoxCollider>().enabled = false;
+               pickUp(hit.collider.gameObject.GetComponent<Holdable>());
             }
         }
+    }
+
+    public void pickUp(Holdable item) {
+        currentlyHeld = item;
+        currentlyHeld.GetComponent<Rigidbody>().isKinematic = true;
+        currentChargeTime = 0;
+        currentlyHeld.GetComponent<BoxCollider>().enabled = false;
     }
 
     private void holdItem(Transform c) {
