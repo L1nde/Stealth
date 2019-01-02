@@ -605,6 +605,8 @@ MonoBehaviour:
   chaseTime: 1
   points: []
   eye: {fileID: 0}
+  soundOnNoticePlayer: {fileID: 11400000, guid: fc9d41d84e3ea8e42b9f2f47c8e4cb16,
+    type: 2}
 --- !u!137 &137350132696335182
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

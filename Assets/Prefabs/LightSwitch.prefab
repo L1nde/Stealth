@@ -130,3 +130,4 @@ MonoBehaviour:
   lights:
   - {fileID: 0}
   isTurnedOn: 1
+  sound: {fileID: 11400000, guid: c066effab334e504a8f32cd9ddd33742, type: 2}

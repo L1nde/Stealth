@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925acdadfb6ec4444b2fcc859a9877b3, type: 3}
   m_Name: Alarm
   m_EditorClassIdentifier: 
-  volumeMin: 0
-  volumeMax: 0
-  pitchMin: 0
-  pitchMax: 0
-  cooldown: 0
-  clips: []
+  volumeMin: 1
+  volumeMax: 1
+  pitchMin: 1
+  pitchMax: 1
+  cooldown: 0.3
+  clips:
+  - {fileID: 8300000, guid: e90edc26c14aa104f81ee44f17b368f4, type: 3}

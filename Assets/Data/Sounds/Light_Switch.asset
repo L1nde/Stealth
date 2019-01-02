@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925acdadfb6ec4444b2fcc859a9877b3, type: 3}
   m_Name: Light_Switch
   m_EditorClassIdentifier: 
-  volumeMin: 0
-  volumeMax: 0
-  pitchMin: 0
-  pitchMax: 0
-  cooldown: 0
-  clips: []
+  volumeMin: 0.8
+  volumeMax: 1.2
+  pitchMin: 0.8
+  pitchMax: 1.2
+  cooldown: 0.1
+  clips:
+  - {fileID: 8300000, guid: 928bcca0e7be037409cd06678d4fe11a, type: 3}
