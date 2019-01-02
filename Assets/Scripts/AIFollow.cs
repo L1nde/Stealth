@@ -42,7 +42,7 @@ public class AIFollow : MonoBehaviour {
             if (eye.canSeePlayer(player))
                 followPlayer(playerPos);
         }
-
+        
         if (currentChaseTime > 0) {
             GoTo(playerPos);
             currentChaseTime -= Time.deltaTime;
@@ -73,6 +73,8 @@ public class AIFollow : MonoBehaviour {
             soundOnNoticePlayer.playAtLocation(transform.position);
             followingPlayer = true;
         }
+        if (Vector3.Distance(playerPos, transform.position) < 1)
+            GameController.instance.lose();
         
         animator.SetTrigger("Run");
         agent.speed = 5;

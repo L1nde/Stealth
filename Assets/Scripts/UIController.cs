@@ -7,7 +7,11 @@ public class UIController : MonoBehaviour {
 
     public static UIController instance;
 
+    public GameObject crossHair;
     public Text interactableText;
+    public GameObject winScreen;
+    public GameObject loseScreen;
+
 	// Use this for initialization
 	void Awake () {
 	    if (instance == null)
@@ -25,6 +29,15 @@ public class UIController : MonoBehaviour {
         interactableText.gameObject.SetActive(false);
     }
 
+    public void showWinScreen() {
+        crossHair.SetActive(false);
+        winScreen.SetActive(true);
+    }
+
+    public void showLoseScreen() {
+        crossHair.SetActive(false);
+        loseScreen.SetActive(true);
+    }
 
 
 }
