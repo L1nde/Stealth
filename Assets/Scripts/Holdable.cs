@@ -20,12 +20,13 @@ public class Holdable : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         float NoiseRange = collision.relativeVelocity.magnitude;
+        Debug.Log(NoiseRange);
         
         if (NoiseRange < 3)
             return;
         else {
             changeVol(NoiseRange);
-            onHitWall.play();
+            onHitWall.playAtLocation(transform.position);
             AIFollow closestEnemy = getClosestEnemyToImpact(NoiseRange);
             if (closestEnemy == null)
                 return;
@@ -35,9 +36,7 @@ public class Holdable : MonoBehaviour {
     }
 
     private void changeVol(float impactStrength) {
-        Vector3 playerLoc = GameObject.FindGameObjectWithTag("Player").transform.position;
-        float dist = Vector3.Distance(playerLoc, transform.position);
-        float newVolume = impactStrength / (5 * (dist + 1));
+        float newVolume = impactStrength / 10;
         if (newVolume > 2)
             newVolume = 2;
         onHitWall.volumeMin = newVolume;

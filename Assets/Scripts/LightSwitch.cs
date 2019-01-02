@@ -15,7 +15,7 @@ public class LightSwitch : Interactable {
     }
 
     public override void interact() {
-        sound.play();
+        sound.playAtLocation(transform.position);
         isTurnedOn = !isTurnedOn;
         if (isTurnedOn)
             transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
@@ -26,6 +26,7 @@ public class LightSwitch : Interactable {
             changeState(lamp);
         }
     }
+
 
     private void changeState(Lamp lamp) {
         if (isTurnedOn)

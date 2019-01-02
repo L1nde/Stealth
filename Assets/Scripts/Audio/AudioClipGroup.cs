@@ -46,6 +46,22 @@ namespace Assets.Scripts {
             play(pool.getSource());
         }
 
+        public void playAtLocation(Vector3 loc) {
+            if (pool == null) {
+                pool = FindObjectOfType<AudioSourcePool>();
+            }
+            playAtLocation(pool.getSource(), loc);
+        }
 
+        private void playAtLocation(AudioSource audioSource, Vector3 loc) {
+            if (Time.time - timestamp > cooldown) {
+                audioSource.gameObject.transform.position = loc;
+                audioSource.clip = clips[Random.Range(0, clips.Count)];
+                audioSource.spatialBlend = 1f;
+                audioSource.volume = Random.Range(volumeMin, volumeMax);
+                audioSource.pitch = Random.Range(pitchMin, pitchMax);
+                audioSource.Play();
+            }
+        }
     }
 }
