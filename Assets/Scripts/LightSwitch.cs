@@ -35,16 +35,8 @@ public class LightSwitch : Interactable {
             lamp.turnOn();
         else {
             lamp.turnOff();
-            enemyThatLooksAfter.turnOnTheSwitch(this);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log(other.tag);
-        if (other.tag == "Enemy") {
-            foreach (Lamp lamp in lights) {
-                lamp.turnOn();
-            }
+            if (enemyThatLooksAfter != null)
+                enemyThatLooksAfter.turnOnTheSwitch(this);
         }
     }
 

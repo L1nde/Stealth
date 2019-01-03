@@ -77,26 +77,6 @@ public class AIFollow : MonoBehaviour {
             
         }
 
-        /*
-        else if (!agent.hasPath) {
-            followingPlayer = false;
-            if (points.Length != 0) {
-                GotoNextPoint();
-            }
-            else {
-                goToSpawn();
-            }
-        }
-        // Upon reaching the target pos
-        else if (!agent.pathPending && agent.remainingDistance < 1f) {
-            followingPlayer = false;
-            if (points.Length == 0)
-                goToSpawn();
-            else
-                GotoNextPoint();
-        }
-         */
-
     }
 
     private void followPlayer(Vector3 playerPos) {
@@ -171,8 +151,6 @@ public class AIFollow : MonoBehaviour {
 
 
     void GotoNextPoint() {
-        Debug.Log("GotoNextPoint");
-        // Returns if no points have been set up
         if (points.Length == 0)
             return;
         animator.SetTrigger("Walk");
