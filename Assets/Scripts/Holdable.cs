@@ -23,6 +23,9 @@ public class Holdable : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         float NoiseRange = collision.relativeVelocity.magnitude;
+        if (NoiseRange < 3) {
+            return;
+        }
         changeVol(NoiseRange);
         noiseMaker.makeNoise(NoiseRange);
         noiseMaker.cancelNoise();
