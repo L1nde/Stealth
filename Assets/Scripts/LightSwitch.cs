@@ -9,6 +9,8 @@ public class LightSwitch : Interactable {
     public bool isTurnedOn;
     public AudioClipGroup sound;
 
+    public AIFollow enemyThatLooksAfter;
+
     private void Start() {
         foreach (Lamp lamp in lights) 
             changeState(lamp);
@@ -31,8 +33,19 @@ public class LightSwitch : Interactable {
     private void changeState(Lamp lamp) {
         if (isTurnedOn)
             lamp.turnOn();
-        else
+        else {
             lamp.turnOff();
+            enemyThatLooksAfter.turnOnTheSwitch(this);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(other.tag);
+        if (other.tag == "Enemy") {
+            foreach (Lamp lamp in lights) {
+                lamp.turnOn();
+            }
+        }
     }
 
 }

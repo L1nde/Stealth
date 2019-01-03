@@ -21,34 +21,63 @@ public class AIFollow : MonoBehaviour {
     private bool reactedToNoise;
     private bool followingPlayer;
 
+    private bool hasToTurnOnSwitch;
+    private LightSwitch switchToTurnOn;
+
     // Use this for initialization
     void Start() {
-        followingPlayer = false;
+        
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         currentChaseTime = 0;
+
+        followingPlayer = false;
         agent.autoBraking = false;
+        hasToTurnOnSwitch = false;
+
         GotoNextPoint();
         spawnPos = transform.position;
         eye = GetComponentInChildren<Eye>();
     }
 
-    // Update is called once per frame
     void Update() {
+        /* if sees player -> try to catch player
+         * While chaseTime > 0 -> update goto pos
+         * Once chaseTime <= 0 
+         *      resume turning the light on
+         *      go to the next waypoint
+         *      go back to spawn
+         */
         var player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPos = player.transform.position;
 
-        if (currentChaseTime <= chaseTime / 2) {
-            if (eye.canSeePlayer(player))
-                followPlayer(playerPos);
-        }
-        
-        if (currentChaseTime > 0) {
+
+        if (eye.canSeePlayer(player)) {
+            followPlayer(playerPos);
+            currentChaseTime -= Time.deltaTime;
+        } else if (currentChaseTime > 0) {
             GoTo(playerPos);
             currentChaseTime -= Time.deltaTime;
+
+        } else {
+            if (followingPlayer) {
+                followingPlayer = false;
+                animator.ResetTrigger("Walk");
+                animator.ResetTrigger("Run");
+                animator.SetTrigger("Walk");
+                agent.speed = 2;
+            }
+            if (hasToTurnOnSwitch)
+                tryToTurnOnSwitch();
+            else if ((points.Length != 0 && !agent.hasPath) || (points.Length != 0 && !agent.pathPending && agent.remainingDistance < 1f))
+                GotoNextPoint();
+            else if (points.Length == 0) 
+                goToSpawn();
+            
+            
         }
 
-        // Get new Pos to go to
+        /*
         else if (!agent.hasPath) {
             followingPlayer = false;
             if (points.Length != 0) {
@@ -66,29 +95,31 @@ public class AIFollow : MonoBehaviour {
             else
                 GotoNextPoint();
         }
+         */
+
     }
 
     private void followPlayer(Vector3 playerPos) {
         if (!followingPlayer) {
             soundOnNoticePlayer.playAtLocation(transform.position);
+            animator.ResetTrigger("Walk");
+            animator.ResetTrigger("Run");
+            animator.SetTrigger("Run");
+            agent.speed = 5;
+            agent.isStopped = false;
             followingPlayer = true;
         }
         if (Vector3.Distance(playerPos, transform.position) < 1)
             GameController.instance.lose();
         
-        animator.SetTrigger("Run");
-        agent.speed = 5;
         currentChaseTime = chaseTime;
-        agent.isStopped = false;
         GoTo(playerPos);
     }
 
 
     private void goToSpawn() {
-        agent.speed = 2;
-        animator.ResetTrigger("Run");
+
         if (Vector3.Distance(spawnPos, transform.position) > 1f) {
-            animator.SetTrigger("Walk");
             GoTo(spawnPos);
         }
         else {
@@ -121,8 +152,26 @@ public class AIFollow : MonoBehaviour {
         StartCoroutine("delayedWalkCoroutine", targetLoc);
     }
 
+    private void tryToTurnOnSwitch() {
+        if (switchToTurnOn.isTurnedOn) {
+            hasToTurnOnSwitch = false;
+            return;
+        }
+        Vector3 sPos = switchToTurnOn.transform.position;
+        if (Vector3.Distance(sPos, transform.position) < 2) {
+            hasToTurnOnSwitch = false;
+            switchToTurnOn.interact();
+        } else {
+            animator.SetTrigger("Walk");
+            agent.speed = 2;
+            GoTo(sPos);
+        }
+        
+    }
+
 
     void GotoNextPoint() {
+        Debug.Log("GotoNextPoint");
         // Returns if no points have been set up
         if (points.Length == 0)
             return;
@@ -134,6 +183,11 @@ public class AIFollow : MonoBehaviour {
 
     public bool notBehindWall(Vector3 target) {
         return eye.notBehindWall(target);
+    }
+
+    public void turnOnTheSwitch(LightSwitch lightSwitch) {
+        hasToTurnOnSwitch = true;
+        switchToTurnOn = lightSwitch;
     }
 
 
