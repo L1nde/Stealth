@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 137350132696335182}
   m_Layer: 13
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 4173770166045504}
   m_Layer: 13
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,7 +406,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464714504579938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.250046, y: 1, z: -74.27388}
+  m_LocalPosition: {x: -15.65, y: 0.14, z: 4.93}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 4173770166045504}
@@ -603,7 +603,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseTime: 1
-  points: []
+  points:
+  - {fileID: 0}
+  - {fileID: 0}
   eye: {fileID: 0}
   soundOnNoticePlayer: {fileID: 11400000, guid: fc9d41d84e3ea8e42b9f2f47c8e4cb16,
     type: 2}
