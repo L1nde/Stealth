@@ -19,7 +19,7 @@ namespace Assets {
 
         // Use this for initialization
         void Start() {
-            noiseMaker = GetComponent<NoiseMaker>();
+            noiseMaker = GetComponentInChildren<NoiseMaker>();
             rb = GetComponent<Rigidbody>();
 
             Cursor.lockState = CursorLockMode.Locked;

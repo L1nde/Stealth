@@ -15,8 +15,8 @@ public class Eye : MonoBehaviour {
         Vector3 dirToTarget = targetLoc - transform.position;
         float d = Vector3.Dot(dirToTarget, transform.forward);
         float angle = Mathf.Abs(Vector3.Angle(transform.forward, dirToTarget));
-        if (notBehindWall(targetLoc) && angle <= 75f) {
-            Debug.DrawRay(transform.position, dirToTarget * 10, Color.red);
+        
+        if (angle <= 75f && notBehindWall(targetLoc)) {
             return true;
         }
         return false;
@@ -26,7 +26,8 @@ public class Eye : MonoBehaviour {
     public bool notBehindWall(Vector3 targetLoc) {
         Vector3 dirToTarget = targetLoc - transform.position;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc))) {
+        if (Physics.SphereCast(transform.position, 0.1f, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc))) {
+            Debug.DrawRay(transform.position, dirToTarget.normalized * hit.distance, Color.red);
             if (hit.collider.tag == "Player") {
                 return true;
             }
