@@ -20,7 +20,6 @@ public class Holdable : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision) {
         float NoiseRange = collision.relativeVelocity.magnitude;
-        Debug.Log(NoiseRange);
         
         if (NoiseRange < 3)
             return;

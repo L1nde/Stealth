@@ -22,6 +22,11 @@ public class ItemHolding : MonoBehaviour {
         else {
             Transform c = GetComponentInChildren<Camera>().transform;
             holdItem(c);
+            var consumable = currentlyHeld.gameObject.GetComponent<Consumable>();
+            if (consumable != null && Input.GetKey(KeyCode.F)) {
+                consumable.consume();
+            }
+
             if (Input.GetMouseButtonDown(0)) {
                 mouseButtonKeptDown = true;
                 currentChargeTime = Time.deltaTime;
@@ -72,5 +77,7 @@ public class ItemHolding : MonoBehaviour {
 
         currentlyHeld = null;
     }
+
+
 
 }

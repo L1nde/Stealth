@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coffee : MonoBehaviour {
+public class Coffee : Consumable {
+    private float currentDuration;
+    public float duration;
+    public Mesh emptyCup;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void consume() {
+        player.GetComponentInChildren<AcidTrip>().activate(duration);
+        gameObject.GetComponent<MeshFilter>().mesh = emptyCup;
+        Destroy(this);
+    }
+
+
+
 }
