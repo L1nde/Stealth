@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 54610211814775186}
   - component: {fileID: 65147597877357792}
   - component: {fileID: 114812936218254676}
+  - component: {fileID: 114634350479571146}
   m_Layer: 11
   m_Name: Cup0
   m_TagString: Untagged
@@ -66,6 +67,7 @@ GameObject:
   - component: {fileID: 54408210739115582}
   - component: {fileID: 65720679623388598}
   - component: {fileID: 114967713850258036}
+  - component: {fileID: 114071360108618014}
   m_Layer: 11
   m_Name: Cup1
   m_TagString: Untagged
@@ -105,15 +107,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583582720948736}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 86.3, y: 2.46, z: -56.24304}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 34, y: 2.9, z: -83.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087605456288118}
   - {fileID: 4222098738909692}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 90, z: 0}
 --- !u!23 &23820295903865532
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -343,6 +345,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114071360108618014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994255625540240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c479555e38b1f14db1e6db4b9dc8e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114634350479571146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796566434571188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c479555e38b1f14db1e6db4b9dc8e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114654941335988320
 MonoBehaviour:
   m_ObjectHideFlags: 1

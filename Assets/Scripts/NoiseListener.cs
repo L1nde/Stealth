@@ -13,11 +13,15 @@ public class NoiseListener : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        reactToNoise((SphereCollider) other);
+        SphereCollider c = (SphereCollider) other;
+        reactToNoise(c);
+        c.radius = 0;
     }
 
     private void OnTriggerStay(Collider other) {
-        reactToNoise((SphereCollider)other);
+        SphereCollider c = (SphereCollider)other;
+        reactToNoise(c);
+        c.radius = 0;
     }
 
     private void reactToNoise(SphereCollider other) {
