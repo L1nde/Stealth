@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33599552552588806}
   - component: {fileID: 23180731592692528}
   m_Layer: 0
-  m_Name: lamp3 1
+  m_Name: lamp3WithDarkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 23509250951097866}
   - component: {fileID: 65257294416852182}
   - component: {fileID: 114693843701441340}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Darkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}

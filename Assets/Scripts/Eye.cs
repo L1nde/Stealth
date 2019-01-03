@@ -25,8 +25,9 @@ public class Eye : MonoBehaviour {
 
     public bool notBehindWall(Vector3 targetLoc) {
         Vector3 dirToTarget = targetLoc - transform.position;
+        int layerMask = ~(1 << LayerMask.NameToLayer("Darkness"));
         RaycastHit hit;
-        if (Physics.SphereCast(transform.position, 0.1f, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc))) {
+        if (Physics.SphereCast(transform.position, 0.1f, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc), layerMask)) {
             Debug.DrawRay(transform.position, dirToTarget.normalized * hit.distance, Color.red);
             if (hit.collider.tag == "Player") {
                 return true;

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23130614538620716}
   - component: {fileID: 65114776597806338}
   - component: {fileID: 114409655024425980}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Darkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
