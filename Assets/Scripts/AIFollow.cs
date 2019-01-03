@@ -71,7 +71,7 @@ public class AIFollow : MonoBehaviour {
                 tryToTurnOnSwitch();
             else if ((points.Length != 0 && !agent.hasPath) || (points.Length != 0 && !agent.pathPending && agent.remainingDistance < 1f))
                 GotoNextPoint();
-            else if (points.Length == 0) 
+            else if (points.Length == 0 && !reactedToNoise) 
                 goToSpawn();
             
             
