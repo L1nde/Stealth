@@ -85,7 +85,7 @@ public class AIFollow : MonoBehaviour {
             animator.ResetTrigger("Walk");
             animator.ResetTrigger("Run");
             animator.SetTrigger("Run");
-            agent.speed = 5;
+            agent.speed = 7;
             agent.isStopped = false;
             followingPlayer = true;
         }
