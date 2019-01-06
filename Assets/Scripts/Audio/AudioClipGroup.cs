@@ -63,5 +63,10 @@ namespace Assets.Scripts {
                 audioSource.Play();
             }
         }
+
+        public void changeVol(float vol) {
+            volumeMin = vol;
+            volumeMax = vol;
+        }
     }
 }

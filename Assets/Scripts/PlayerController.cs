@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts;
 using UnityEngine;
 
 namespace Assets {
@@ -13,6 +14,9 @@ namespace Assets {
         public float runSpeed = 1;
         public float jumpPower = 1;
         public bool isInDark = false;
+        public AudioClipGroup AudioClipGroup;
+
+        private float soundAcc;
         
 
         
@@ -37,7 +41,7 @@ namespace Assets {
             }
             
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-
+            
             if (isgrounded()) {
                rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * jumpPower, 0));
             }
@@ -65,11 +69,29 @@ namespace Assets {
             rb.velocity = new Vector3(mov.x * speed, rb.velocity.y, mov.z * speed);
 
             noiseMaker.makeNoise(rb.velocity.magnitude);
+            playSteps(speed * mov.magnitude);
 
         }
 
         private bool isgrounded() {
             return  Physics.Raycast(transform.position, -Vector3.up, 0.1f);
         }
+
+        private void playSteps(float timesPerSec) {
+            if (timesPerSec < 3f) {
+                soundAcc = 2.5f;
+                return;
+            }
+
+            if (soundAcc > 2.5f / timesPerSec) {
+                AudioClipGroup.play();
+                soundAcc = 0f;
+            }
+
+            soundAcc += Time.deltaTime;
+
+        }
     }
+
+    
 }

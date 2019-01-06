@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = head.position;
+	    transform.position = head.position;
 		float inverted = -1;
 		if (invertedY) {
 			inverted = 1;
