@@ -138,7 +138,7 @@ public class AIFollow : MonoBehaviour {
             return;
         }
         Vector3 sPos = switchToTurnOn.transform.position;
-        if (Vector3.Distance(sPos, transform.position) < 2) {
+        if (Vector3.Distance(sPos, transform.position) < 4) {
             hasToTurnOnSwitch = false;
             switchToTurnOn.interact();
         } else {
