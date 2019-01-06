@@ -85,7 +85,7 @@ public class AIFollow : MonoBehaviour {
             animator.ResetTrigger("Walk");
             animator.ResetTrigger("Run");
             animator.SetTrigger("Run");
-            agent.speed = 5;
+            agent.speed = 7;
             agent.isStopped = false;
             followingPlayer = true;
         }
@@ -138,7 +138,7 @@ public class AIFollow : MonoBehaviour {
             return;
         }
         Vector3 sPos = switchToTurnOn.transform.position;
-        if (Vector3.Distance(sPos, transform.position) < 2) {
+        if (Vector3.Distance(sPos, transform.position) < 4) {
             hasToTurnOnSwitch = false;
             switchToTurnOn.interact();
         } else {
