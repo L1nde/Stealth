@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 925acdadfb6ec4444b2fcc859a9877b3, type: 3}
-  m_Name: Walk
+  m_Name: Step
   m_EditorClassIdentifier: 
   volumeMin: 1
   volumeMax: 1
-  pitchMin: 0
-  pitchMax: 0
-  cooldown: 1
+  pitchMin: 0.81
+  pitchMax: 1.12
+  cooldown: 0
   clips:
-  - {fileID: 8300000, guid: 14637f90c91bbb84ba0d588e0a825c9d, type: 3}
+  - {fileID: 8300000, guid: 65f31cd66f0e6f247a2e57f4d976b17b, type: 3}
