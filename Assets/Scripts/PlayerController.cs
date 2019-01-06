@@ -37,7 +37,7 @@ namespace Assets {
             }
 
             if (Input.GetKey(KeyCode.BackQuote)) {
-                UnityEditor.EditorApplication.isPlaying = false; // For Linux can't quit game in editor
+                //UnityEditor.EditorApplication.isPlaying = false; // For Linux can't quit game in editor
             }
             
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
