@@ -84,7 +84,7 @@ namespace Assets {
             }
 
             if (soundAcc > 2.5f / timesPerSec) {
-                AudioClipGroup.play();
+                AudioClipGroup.playAtLocation(transform.position);
                 soundAcc = 0f;
             }
 
