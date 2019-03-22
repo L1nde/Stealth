@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1590635280827462974}
   - component: {fileID: 1468855301784232471}
   - component: {fileID: 6323927509459210259}
+  - component: {fileID: 3386687683895934835}
   m_Layer: 0
   m_Name: LampCoridor
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5340720963833592892}
-  m_LocalRotation: {x: -0.5000391, y: -0.49996093, z: -0.4999609, w: 0.5000391}
+  m_LocalRotation: {x: -0.5000393, y: -0.49996078, z: -0.49996078, w: 0.5000393}
   m_LocalPosition: {x: 35.994915, y: 2.2166576, z: 20.222815}
-  m_LocalScale: {x: 0.10255933, y: 0.10255933, z: 0.10255933}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 42947291045248989}
   - {fileID: 6763890221423594626}
@@ -100,6 +101,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3386687683895934835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340720963833592892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 080204d62a265494fb464e60862d503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissiveColor: {r: 1, g: 1, b: 1, a: 1}
+  intensity: 5
 --- !u!1 &7584958726475943036
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7584958726475943036}
   m_LocalRotation: {x: 0.47771442, y: -0.5213338, z: 0.47771442, w: 0.5213338}
-  m_LocalPosition: {x: -0, y: 5.5608277, z: 0.80385613}
+  m_LocalPosition: {x: 0.009, y: 0.47, z: 0.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5315271436147632105}
@@ -203,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8477631429159686311}
   m_LocalRotation: {x: 0.47771442, y: -0.5213338, z: 0.47771442, w: 0.5213338}
-  m_LocalPosition: {x: -0, y: -5.62728, z: 0.80385566}
+  m_LocalPosition: {x: 0.009, y: -0.445, z: 0.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5315271436147632105}

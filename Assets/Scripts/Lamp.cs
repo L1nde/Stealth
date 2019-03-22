@@ -5,41 +5,50 @@ using UnityEngine;
 public class Lamp : MonoBehaviour {
 
     private GameObject darkness;
-    private Light l;
     private Renderer renderer;
 
     public Color emissiveColor;
     public float intensity;
+
+    private bool on = true;
 
     void Awake() {
         renderer = GetComponent<Renderer>();
     }
 
 	void Start () {
-        darkness = transform.Find("Darkness").gameObject;
-        l = GetComponentInChildren<Light>();
-        darkness.SetActive(false);
+       // darkness = transform.Find("Darkness").gameObject;
+       // darkness.SetActive(false);
 	    
 	}
 
-    
-
-    public void turnOn() {
-        if (l != null) {
-            l.gameObject.SetActive(true);
-            if (darkness != null)
-                darkness.gameObject.SetActive(false);
+    public void changeState() {
+        if (on) {
+            turnOff();
         }
-        DynamicGI.SetEmissive(renderer, emissiveColor);
-        renderer.materials[1].SetColor("_EmissionColor", emissiveColor * intensity);
+        else {
+            turnOn();
+        }
     }
 
-    public void turnOff() {
-        l.gameObject.SetActive(false);
-        if (darkness != null)
-            darkness.gameObject.SetActive(true);
+    private void turnOn() {
+       // if (l != null) {
+       //     l.gameObject.SetActive(true);
+      //      if (darkness != null)
+        //        darkness.gameObject.SetActive(false);
+     //   }
+        on = true;
+        DynamicGI.SetEmissive(renderer, emissiveColor * intensity);
+        renderer.materials[1].SetColor("_EmissionColor", emissiveColor);
+    }
+
+    private void turnOff() {
+     //   l.gameObject.SetActive(false);
+    //    if (darkness != null)
+      //      darkness.gameObject.SetActive(true);
+        on = false;
         DynamicGI.SetEmissive(renderer, Color.black);
-        renderer.materials[1].SetColor("_EmissionColor", Color.black);
+        renderer.materials[1].SetColor("_EmissionColor", Color.black * -5);
     }
 
 }

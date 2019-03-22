@@ -57,32 +57,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hair
-    second: {fileID: 2100000, guid: 2da134ba8141c5a43b8342b01fe71899, type: 2}
+    second: {fileID: 2100000, guid: edb44aa7909c156419863f47c48dfb7a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Handle
-    second: {fileID: 2100000, guid: 81be9564e38a07342b10ba5fb51950a7, type: 2}
+    second: {fileID: 2100000, guid: 5b55b58201276834bb6315e4d45f5a26, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Pants
-    second: {fileID: 2100000, guid: fececea41aa62494cbc66cd09be98fd3, type: 2}
+    second: {fileID: 2100000, guid: c8a8060157487414e822ca9810688abe, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Shoes
-    second: {fileID: 2100000, guid: da110f328fbeef14b9986d874e3b4d75, type: 2}
+    second: {fileID: 2100000, guid: 9c857bbc83737ad4795670738392ffd9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Skin
-    second: {fileID: 2100000, guid: b279f078050de334a902d75ac96c23c6, type: 2}
+    second: {fileID: 2100000, guid: 9510f283946ae4b4f947d988fcda17dc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Weigths
-    second: {fileID: 2100000, guid: b4475106814f3d84092284304abaa961, type: 2}
+    second: {fileID: 2100000, guid: 21dba8e4737676b4c98d42f8ec2aaba4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -200,12 +200,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
-    importLights: 0
+    importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -218,12 +219,15 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -238,7 +242,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

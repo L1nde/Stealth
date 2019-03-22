@@ -6,14 +6,14 @@ using UnityEngine;
 public class LightSwitch : Interactable {
 
     public List<Lamp> lights;
-    public bool isTurnedOn;
+    public bool isTurnedOn = true;
     public AudioClipGroup sound;
 
     public AIFollow enemyThatLooksAfter;
 
     private void Start() {
-        foreach (Lamp lamp in lights) 
-            changeState(lamp);
+       // foreach (Lamp lamp in lights) 
+           // changeState(lamp);
     }
 
     public override void interact() {
@@ -22,19 +22,19 @@ public class LightSwitch : Interactable {
         transform.Rotate(new Vector3(0, 0, 1), 180);
 
         foreach (Lamp lamp in lights) {
-            changeState(lamp);
+            lamp.changeState();
         }
     }
 
 
-    private void changeState(Lamp lamp) {
-        if (isTurnedOn)
-            lamp.turnOn();
-        else {
-            lamp.turnOff();
-            if (enemyThatLooksAfter != null)
-                enemyThatLooksAfter.turnOnTheSwitch(this);
-        }
-    }
+    //private void changeState(Lamp lamp) {
+      //  if (isTurnedOn)
+      //      lamp.turnOn();
+      //  else {
+      //      lamp.turnOff();
+       //     if (enemyThatLooksAfter != null)
+       //         enemyThatLooksAfter.turnOnTheSwitch(this);
+     //   }
+ //   }
 
 }

@@ -37,7 +37,6 @@ public class AIFollow : MonoBehaviour {
 
         GotoNextPoint();
         spawnPos = transform.position;
-        eye = GetComponentInChildren<Eye>();
     }
 
     void Update() {
@@ -50,7 +49,6 @@ public class AIFollow : MonoBehaviour {
          */
         var player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPos = player.transform.position;
-
 
         if (eye.canSeePlayer(player)) {
             followPlayer(playerPos);
@@ -89,7 +87,7 @@ public class AIFollow : MonoBehaviour {
             agent.isStopped = false;
             followingPlayer = true;
         }
-        if (Vector3.Distance(playerPos, transform.position) < 1.5)
+        if (Vector3.Distance(playerPos, transform.position) < 0.5f)
             GameController.instance.lose();
         
         currentChaseTime = chaseTime;
