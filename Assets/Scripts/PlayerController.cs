@@ -15,6 +15,7 @@ namespace Assets {
         public float jumpPower = 1;
         public bool isInDark = false;
         public AudioClipGroup AudioClipGroup;
+        private CapsuleCollider collider;
 
         private float soundAcc;
         
@@ -25,7 +26,7 @@ namespace Assets {
         void Start() {
             noiseMaker = GetComponentInChildren<NoiseMaker>();
             rb = GetComponent<Rigidbody>();
-
+            collider = GetComponent<CapsuleCollider>();
             Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -43,15 +44,26 @@ namespace Assets {
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             
             if (isgrounded()) {
-               rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * jumpPower, 0));
+                var j = Input.GetAxis("Jump");
+               rb.AddForce(new Vector3(0, j * jumpPower, 0));
+                if (j > 0) {
+                    animator.SetBool("jump", true);
+                } else {
+                    animator.SetBool("jump", false);
+                }
             }
+            
 
             if (Input.GetKeyDown(KeyCode.C)){
                 crouched = !crouched;
                 if (crouched){
                     animator.SetTrigger("goSneak");
+                    collider.height = 1.1f;
+                    collider.center = new Vector3(collider.center.x, 0.52f, collider.center.z);
                 } else {
                     animator.SetTrigger("standUp");
+                    collider.height = 1.786118f;
+                    collider.center = new Vector3(collider.center.x, 0.8900616f, collider.center.z);
                 }
             }
             
