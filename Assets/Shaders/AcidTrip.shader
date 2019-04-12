@@ -85,7 +85,7 @@ Shader "AcidTrip/AcidTrip" {
 	
 Subshader {
  Pass {
-	  ZTest Always Cull Off ZWrite Off
+	  ZTest Off Cull Off ZWrite Off
 
       CGPROGRAM
       #pragma vertex vert

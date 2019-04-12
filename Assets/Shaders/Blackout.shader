@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Blackout"
+﻿Shader "Blackout"
 {
     Properties
     {
@@ -6,16 +6,18 @@
 		_Timer ("Timer", Range(0, 1)) = 0
 		_BlackoutColor ("Blackout color", Color) = (1.0,1.0,1.0,1.0)
     }
+
     SubShader
     {
         // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        Cull Off ZWrite Off ZTest Off
 
         Pass
         {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+
 
             #include "UnityCG.cginc"
 

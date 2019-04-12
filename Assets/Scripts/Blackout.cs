@@ -30,7 +30,7 @@ public class Blackout : MonoBehaviour
     }
 
     private bool CheckResources() {
-        currentShader = Shader.Find("Hidden/Blackout");
+        currentShader = Shader.Find("Blackout");
         currentMaterial = new Material(currentShader);
         return true;
     }
