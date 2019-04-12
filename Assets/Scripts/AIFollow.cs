@@ -87,7 +87,7 @@ public class AIFollow : MonoBehaviour {
             agent.isStopped = false;
             followingPlayer = true;
         }
-        if (Vector3.Distance(playerPos, transform.position) < 0.5f)
+        if (!GameController.instance.Invulnarable && Vector3.Distance(playerPos, transform.position) < 0.5f)
             GameController.instance.lose();
         
         currentChaseTime = chaseTime;

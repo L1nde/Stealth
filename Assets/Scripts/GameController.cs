@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
 
     private AudioSourcePool pool;
 
+    public bool Invulnarable;
+
     void Awake() {
         if (instance == null)
             instance = this;

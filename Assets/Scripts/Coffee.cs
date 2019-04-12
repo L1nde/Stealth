@@ -9,7 +9,7 @@ public class Coffee : Consumable {
 
     public override void consume() {
         Used = true;
-        StartCoroutine("use");
+        StartCoroutine(use());
         
     }
 

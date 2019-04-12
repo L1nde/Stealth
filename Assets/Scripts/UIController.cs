@@ -8,9 +8,12 @@ public class UIController : MonoBehaviour {
     public static UIController instance;
 
     public GameObject crossHair;
-    public Text interactableText;
+    public GameObject interactableText;
+    public GameObject interactableText2;
+    public GameObject interactablePic;
     public GameObject winScreen;
     public GameObject loseScreen;
+    public Image CoffeeBuff;
 
 	// Use this for initialization
 	void Awake () {
@@ -19,6 +22,10 @@ public class UIController : MonoBehaviour {
 
 	    else if (instance != this)
 	        Destroy(gameObject);
+        CoffeeBuff.gameObject.SetActive(false);
+	    interactableText2.gameObject.SetActive(false);
+	    interactableText.gameObject.SetActive(false);
+	    interactablePic.gameObject.SetActive(false);
     }
 
     public void enableInteractable() {
@@ -27,6 +34,33 @@ public class UIController : MonoBehaviour {
 
     public void disableInteractable() {
         interactableText.gameObject.SetActive(false);
+    }
+
+    public void enableInteractable2() {
+        interactableText2.gameObject.SetActive(true);
+    }
+
+    public void disableInteractable2() {
+        interactableText2.gameObject.SetActive(false);
+    }
+
+    public void enableInteractablePic() {
+        interactablePic.gameObject.SetActive(true);
+    }
+
+    public void disableInteractablePic() {
+        interactablePic.gameObject.SetActive(false);
+    }
+
+    public void coffeeBuff(float timeLeft) {
+        if (timeLeft <= 0) {
+            CoffeeBuff.gameObject.SetActive(false);
+        }
+        else {
+            CoffeeBuff.gameObject.SetActive(true);
+        }
+        Debug.Log(timeLeft);
+        CoffeeBuff.fillAmount = timeLeft;
     }
 
     public void showWinScreen() {

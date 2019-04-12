@@ -25,8 +25,15 @@ public class AcidTrip : MonoBehaviour {
 
     public Shader currentShader = null;
     private Material currentMaterial = null;
+    public Blackout Blackout;
 
     private float currentDuration;
+
+    void Start() {
+
+        Blackout = GetComponent<Blackout>();
+        Debug.Log(Blackout.Timer);
+    }
 
     public bool CheckResources() {
         currentShader = Shader.Find("AcidTrip/AcidTrip");
@@ -65,11 +72,20 @@ public class AcidTrip : MonoBehaviour {
     }
 
     private IEnumerator activateCoroutine() {
+        var max = currentDuration;
+        yield return new WaitForEndOfFrame();
+        Blackout.Timer = 0;
+        yield return new WaitForEndOfFrame();
+        Blackout.StopEffect();
+        GameController.instance.Invulnarable = true;
         while (currentDuration > 0) {
             currentDuration -= Time.deltaTime;
+            UIController.instance.coffeeBuff(currentDuration / max);
             yield return null;
         }
 
+        GameController.instance.Invulnarable = false;
+        Blackout.StartEffect();
         currentDuration = 0f;
         enabled = false;
     }
