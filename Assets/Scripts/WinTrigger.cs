@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class WinTrigger : MonoBehaviour {
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player") {
+    public string winCode = "0000";
+
+    public bool ShouldWin(string code) {
+        if (winCode == code) {
             GameController.instance.win();
+            return true;
         }
+
+        return false;
     }
 }

@@ -21,12 +21,14 @@ public class AIFollow : MonoBehaviour {
     private bool reactedToNoise;
     private bool followingPlayer;
 
+    private GameObject player;
+
     private bool hasToTurnOnSwitch;
     private LightSwitch switchToTurnOn;
 
     // Use this for initialization
     void Start() {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         currentChaseTime = 0;
@@ -47,34 +49,34 @@ public class AIFollow : MonoBehaviour {
          *      go to the next waypoint
          *      go back to spawn
          */
-        var player = GameObject.FindGameObjectWithTag("Player");
         Vector3 playerPos = player.transform.position;
 
-        if (eye.canSeePlayer(player)) {
-            followPlayer(playerPos);
-            currentChaseTime -= Time.deltaTime;
-        } else if (currentChaseTime > 0) {
-            GoTo(playerPos);
-            currentChaseTime -= Time.deltaTime;
+        if (!player.GetComponentInChildren<AcidTrip>().IsActive()) {
+            if (eye.canSeePlayer(player)) {
+                followPlayer(playerPos);
+                currentChaseTime -= Time.deltaTime;
+            } else if (currentChaseTime > 0) {
+                GoTo(playerPos);
+                currentChaseTime -= Time.deltaTime;
 
-        } else {
-            if (followingPlayer) {
-                followingPlayer = false;
-                animator.ResetTrigger("Walk");
-                animator.ResetTrigger("Run");
-                animator.SetTrigger("Walk");
-                agent.speed = 2;
+            } else {
+                if (followingPlayer) {
+                    followingPlayer = false;
+                    animator.ResetTrigger("Walk");
+                    animator.ResetTrigger("Run");
+                    animator.SetTrigger("Walk");
+                    agent.speed = 2;
+                }
+                if (hasToTurnOnSwitch)
+                    tryToTurnOnSwitch();
+                else if ((points.Length != 0 && !agent.hasPath) || (points.Length != 0 && !agent.pathPending && agent.remainingDistance < 1f))
+                    GotoNextPoint();
+                else if (points.Length == 0 && !reactedToNoise)
+                    goToSpawn();
+
+
             }
-            if (hasToTurnOnSwitch)
-                tryToTurnOnSwitch();
-            else if ((points.Length != 0 && !agent.hasPath) || (points.Length != 0 && !agent.pathPending && agent.remainingDistance < 1f))
-                GotoNextPoint();
-            else if (points.Length == 0 && !reactedToNoise) 
-                goToSpawn();
-            
-            
         }
-
     }
 
     private void followPlayer(Vector3 playerPos) {

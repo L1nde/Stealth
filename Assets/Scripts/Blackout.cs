@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode]
 public class Blackout : MonoBehaviour
 {
 
-    public Shader currentShader = null;
-    private Material currentMaterial = null;
+    private Shader currentShader = null;
+    public Material currentMaterial = null;
 
     public float Timer;
     public float Pause = 1f;
 
-    public float Rate = 0.01f;
+    public float Rate = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,10 @@ public class Blackout : MonoBehaviour
     }
 
     void OnRenderImage(RenderTexture source, RenderTexture destination) {
-        if (!CheckResources()) {
-            Graphics.Blit(source, destination);
-            return;
-        }
+        //if (!CheckResources()) {
+          //  Graphics.Blit(source, destination);
+            //return;
+        //}
 
         currentMaterial.SetFloat("_Timer", Timer);
 
@@ -47,13 +48,13 @@ public class Blackout : MonoBehaviour
     private IEnumerator blackoutCo() {
         enabled = true;
         do {
-            Timer += Rate;
-            yield return new WaitForSeconds(Rate);
+            Timer += Rate * Time.deltaTime;
+            yield return new WaitForSeconds(Rate * Time.deltaTime);
         } while (Timer < 1);
         yield return new WaitForSeconds(Pause);
         do {
-            Timer -= Rate;
-            yield return new WaitForSeconds(Rate);
+            Timer -= Rate * Time.deltaTime;
+            yield return new WaitForSeconds(Rate * Time.deltaTime);
         } while (Timer > 0);
 
         enabled = false;

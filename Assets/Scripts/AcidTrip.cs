@@ -32,7 +32,6 @@ public class AcidTrip : MonoBehaviour {
     void Start() {
 
         Blackout = GetComponent<Blackout>();
-        Debug.Log(Blackout.Timer);
     }
 
     public bool CheckResources() {
@@ -69,6 +68,10 @@ public class AcidTrip : MonoBehaviour {
         StopCoroutine("activateCoroutine");
         StartCoroutine("activateCoroutine");
 
+    }
+
+    public bool IsActive() {
+        return enabled;
     }
 
     private IEnumerator activateCoroutine() {

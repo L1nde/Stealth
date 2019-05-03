@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour {
 			inverted = 1;
 		}
 		float xRot = Input.GetAxis("Mouse Y") * sensitivity * inverted + transform.eulerAngles.x;
-		if (xRot > 89 && xRot < 271) {
+		if (xRot > 75 && xRot < 271) {
 			xRot = transform.eulerAngles.x;
 		}
 		// transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, Mathf.Clamp(transform.rotation.w, -0.5f, 0.5f));

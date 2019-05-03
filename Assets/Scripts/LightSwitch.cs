@@ -9,17 +9,21 @@ public class LightSwitch : Interactable {
     public bool isTurnedOn = true;
     public AudioClipGroup sound;
 
+    private Animator anim;
+
     public AIFollow enemyThatLooksAfter;
 
     private void Start() {
-       // foreach (Lamp lamp in lights) 
-           // changeState(lamp);
+        anim = GetComponent<Animator>();
+        // foreach (Lamp lamp in lights) 
+        // changeState(lamp);
     }
 
     public override void interact() {
         sound.playAtLocation(transform.position);
         isTurnedOn = !isTurnedOn;
-        transform.Rotate(new Vector3(0, 0, 1), 180);
+        //child.transform.Rotate(new Vector3(0, 0, 1), 10);
+        anim.SetTrigger("Interact");
 
         foreach (Lamp lamp in lights) {
             lamp.changeState();

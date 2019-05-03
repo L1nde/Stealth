@@ -5,6 +5,7 @@
         _MainTex ("Texture", 2D) = "white" {}
 		_Timer ("Timer", Range(0, 1)) = 0
 		_BlackoutColor ("Blackout color", Color) = (1.0,1.0,1.0,1.0)
+		_BlackoutTex("Blackout texture", 2D) = "white" {}
     }
 
     SubShader
@@ -33,23 +34,26 @@
                 float4 vertex : SV_POSITION;
             };
 
+			sampler2D _MainTex;
+			sampler2D _BlackoutTex;
+
+			float _Timer;
+			float4 _BlackoutColor;
+
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
+				o.uv = v.uv;
                 return o;
             }
-
-            sampler2D _MainTex;
-			float _Timer;
-			float4 _BlackoutColor;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 bcol = tex2D(_BlackoutTex, i.uv);
                 // just invert the colors
-                col.rgb = lerp(col, _BlackoutColor, _Timer);
+				col.rgb = lerp(col, _BlackoutColor * _SinTime.w , (_Timer + bcol.r) * _Timer);
                 return col;
             }
             ENDCG
