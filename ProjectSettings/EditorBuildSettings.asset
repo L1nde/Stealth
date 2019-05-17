@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Map3.unity
     guid: ef146222ac9e8c94690dad943190f6b3
   - enabled: 1
-    path: Assets/Scenes/FreshStart.unity
-    guid: fe3f51c4c681c37478395e033220b369
-  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 65ffa54f92d4f2145982e0f9d34a2b10
+  - enabled: 1
+    path: Assets/Scenes/FreshStart.unity
+    guid: fe3f51c4c681c37478395e033220b369
   m_configObjects: {}

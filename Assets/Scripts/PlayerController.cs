@@ -32,10 +32,6 @@ namespace Assets {
 
         // Update is called once per frame
         void Update() {
-            if(Input.GetKey(KeyCode.Escape)){
-
-                Application.Quit();
-            }
 
             if (Input.GetKey(KeyCode.BackQuote)) {
                 //UnityEditor.EditorApplication.isPlaying = false; // For Linux can't quit game in editor
