@@ -13,14 +13,16 @@ public class Collapser : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	    if (Input.GetKey(KeyCode.F1)) {
-	        Instantiate(remains, transform.position, transform.rotation);
+	        Instantiate(remains, transform.position, transform.rotation, transform.parent);
 	        Destroy(gameObject);
 	    }
 	}
 
     private void OnCollisionEnter(Collision collision) {
-        Instantiate(remains, transform.position, transform.rotation);
-	    Destroy(gameObject);
+        if (collision.gameObject.tag != "Player") {
+            Instantiate(remains, transform.position, transform.rotation, transform.parent);
+            Destroy(gameObject);
+        }
     }
 
 

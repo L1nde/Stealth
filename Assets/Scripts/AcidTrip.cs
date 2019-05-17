@@ -70,6 +70,14 @@ public class AcidTrip : MonoBehaviour {
 
     }
 
+    public void deactivate() {
+        enabled = false;
+        currentDuration = 0f;
+        StopAllCoroutines();
+        Blackout.StopEffect();
+        UIController.instance.coffeeBuff(0);
+    }
+
     public bool IsActive() {
         return enabled;
     }

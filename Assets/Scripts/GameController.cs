@@ -25,7 +25,9 @@ public class GameController : MonoBehaviour {
     }
 
     void Update () {
-		
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            UIController.instance.Pause();
+        }
 	}
 
     public void win() {
@@ -41,7 +43,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void restartScene() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("Main Menu");
     }
 }

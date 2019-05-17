@@ -28,11 +28,13 @@ public class ItemHolding : MonoBehaviour {
             holdItem(hand);
             var consumable = currentlyHeld.gameObject.GetComponent<Consumable>();
             if (consumable != null && !consumable.Used) {
-                if (Input.GetKey(KeyCode.F)) {
-                    animator.SetTrigger("drink");
+                if (Input.GetKeyDown(consumable.Key)) {
+                    if (!(consumable is Flashlight)) {
+                        animator.SetTrigger("drink");
+                    }
                     consumable.consume();
                 } 
-                UIController.instance.enableInteractable2();
+                UIController.instance.enableInteractable2(consumable.Key.ToString(), consumable.Description);
             }
             else {
                 UIController.instance.disableInteractable2();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
@@ -10,10 +11,13 @@ public class UIController : MonoBehaviour {
     public GameObject crossHair;
     public GameObject interactableText;
     public GameObject interactableText2;
+    public Text interactableText2Key;
+    public Text interactableText2Info;
     public GameObject interactablePic;
     public GameObject winScreen;
     public GameObject loseScreen;
     public Image CoffeeBuff;
+    public GameObject PausePanel;
 
 	// Use this for initialization
 	void Awake () {
@@ -28,6 +32,21 @@ public class UIController : MonoBehaviour {
 	    interactablePic.gameObject.SetActive(false);
     }
 
+    public void Pause() {
+        if (PausePanel.activeInHierarchy) {
+            PausePanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else {
+            PausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    public void Exit() {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void enableInteractable() {
         interactableText.gameObject.SetActive(true);
     }
@@ -36,7 +55,9 @@ public class UIController : MonoBehaviour {
         interactableText.gameObject.SetActive(false);
     }
 
-    public void enableInteractable2() {
+    public void enableInteractable2(string key, string info) {
+        interactableText2Key.text = "[" + key + "]";
+        interactableText2Info.text = " - " + info;
         interactableText2.gameObject.SetActive(true);
     }
 

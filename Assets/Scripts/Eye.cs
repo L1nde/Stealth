@@ -28,7 +28,7 @@ public class Eye : MonoBehaviour {
         int layerMask = ~(1 << LayerMask.NameToLayer("Darkness"));
         RaycastHit hit;
         if (Physics.SphereCast(transform.position, 0.1f, dirToTarget, out hit, Vector3.Distance(transform.position, targetLoc), layerMask)) {
-            Debug.DrawRay(transform.position, dirToTarget.normalized * hit.distance, Color.red);
+            //Debug.DrawRay(transform.position, dirToTarget.normalized * hit.distance, Color.red);
             if (hit.collider.tag == "Player") {
                 return true;
             }

@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 3867898124854956335}
   - component: {fileID: 3867898124854956334}
   - component: {fileID: 3867898124854956330}
+  - component: {fileID: 3445039510709846812}
   m_Layer: 0
   m_Name: GlassDoor
   m_TagString: Untagged
@@ -225,3 +226,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300014, guid: c7f52e97e2821e043ae07dc08cc711ee, type: 3}
+--- !u!114 &3445039510709846812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3867898124854956333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aba1fd03bfd8d245aec1eaa7cfc0e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remains: {fileID: 7966768904126335154, guid: 22ac3b247078b504ab63b6aef563a22c, type: 3}

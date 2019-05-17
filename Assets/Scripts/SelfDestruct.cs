@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class SelfDestruct : MonoBehaviour {
 
+    public float Delay = -1;
+
 	// Use this for initialization
 	void Start () {
-	    StartCoroutine("destroy");
+	    if (Delay > 0) {
+	        StartCoroutine("destroy");
+        }
 	}
 
     private IEnumerator destroy() {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(Delay);
         Destroy(gameObject);
     }
 }
