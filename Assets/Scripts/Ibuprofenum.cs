@@ -12,7 +12,10 @@ public class Ibuprofenum : Consumable {
 
     private IEnumerator Use() {
         yield return new WaitForSeconds(1.5f);
-        player.GetComponentInChildren<AcidTrip>().deactivate();
+        var acid = player.GetComponentInChildren<AcidTrip>();
+        if (acid != null) {
+           acid.deactivate(); 
+        }
         GetComponent<MeshFilter>().mesh = empty;
         Destroy(this);
     }

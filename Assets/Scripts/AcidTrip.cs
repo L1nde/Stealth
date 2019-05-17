@@ -74,7 +74,10 @@ public class AcidTrip : MonoBehaviour {
         enabled = false;
         currentDuration = 0f;
         StopAllCoroutines();
-        Blackout.StopEffect();
+        if (Blackout != null) {
+            Blackout.Timer = 0;
+            Blackout.StopEffect();
+        }
         UIController.instance.coffeeBuff(0);
     }
 
