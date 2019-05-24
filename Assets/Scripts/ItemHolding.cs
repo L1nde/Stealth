@@ -28,20 +28,20 @@ public class ItemHolding : MonoBehaviour {
             holdItem(hand);
             var consumable = currentlyHeld.gameObject.GetComponent<Consumable>();
             if (consumable != null && !consumable.Used) {
-                if (Input.GetKeyDown(consumable.Key)) {
+                if (Input.GetButtonDown(consumable.Key)) {
                     if (!(consumable is Flashlight)) {
                         animator.SetTrigger("drink");
                     }
                     consumable.consume();
                 } 
-                UIController.instance.enableInteractable2(consumable.Key.ToString(), consumable.Description);
+                UIController.instance.enableInteractable2(consumable.Key, consumable.Description);
             }
             else {
                 UIController.instance.disableInteractable2();
             }
             
 
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetButtonDown("Interact0")) {
                 mouseButtonKeptDown = true;
                 currentChargeTime = Time.deltaTime;
             }
@@ -51,7 +51,7 @@ public class ItemHolding : MonoBehaviour {
                 currentChargeTime += Time.deltaTime;
             }
 
-            if (Input.GetMouseButtonUp(0) && mouseButtonKeptDown) {
+            if (Input.GetButtonUp("Interact0") && mouseButtonKeptDown) {
                 mouseButtonKeptDown = false;
                 throwItem(hand);
             }
@@ -63,7 +63,7 @@ public class ItemHolding : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, pickRange,
             LayerMask.GetMask("Pickable"))) {
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetButtonDown("Interact0")) {
                 pickUp(hit.collider.gameObject.GetComponent<Holdable>());
                 UIController.instance.disableInteractablePic();
             }

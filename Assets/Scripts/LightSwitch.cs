@@ -15,8 +15,13 @@ public class LightSwitch : Interactable {
 
     private void Start() {
         anim = GetComponent<Animator>();
-        // foreach (Lamp lamp in lights) 
-        // changeState(lamp);
+        foreach (Lamp lamp in lights) {
+            if (!isTurnedOn)
+            {
+                lamp.turnOff();
+            }
+        }
+            
     }
 
     public override void interact() {

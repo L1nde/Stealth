@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Used: 0
-  Key: 102
+  Key: Interact2
   Description: Turn on/off
 --- !u!1 &3904872226172469997
 GameObject:

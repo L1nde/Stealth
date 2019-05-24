@@ -50,7 +50,7 @@ namespace Assets {
             }
             
 
-            if (Input.GetKeyDown(KeyCode.C)){
+            if (Input.GetButtonDown("Crouch")){
                 crouched = !crouched;
                 if (crouched){
                     animator.SetTrigger("goSneak");
@@ -71,7 +71,7 @@ namespace Assets {
             float speed = walkSpeed;
             if (crouched) {
                 speed = sneakSpeed;
-            } else if (!crouched && Input.GetKey(KeyCode.LeftShift)) {
+            } else if (!crouched && Input.GetButton("Run")) {
                 speed = runSpeed * Input.GetAxis("Run");
             }
             rb.velocity = new Vector3(mov.x * speed, rb.velocity.y, mov.z * speed);

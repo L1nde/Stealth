@@ -65,7 +65,7 @@ public class AIFollow : MonoBehaviour {
                     animator.ResetTrigger("Walk");
                     animator.ResetTrigger("Run");
                     animator.SetTrigger("Walk");
-                    agent.speed = 2;
+                    agent.speed = 2f;
                 }
                 if (hasToTurnOnSwitch)
                     tryToTurnOnSwitch();
@@ -85,7 +85,7 @@ public class AIFollow : MonoBehaviour {
             animator.ResetTrigger("Walk");
             animator.ResetTrigger("Run");
             animator.SetTrigger("Run");
-            agent.speed = 7;
+            agent.speed = 4;
             agent.isStopped = false;
             followingPlayer = true;
         }

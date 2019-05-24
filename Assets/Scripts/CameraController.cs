@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour {
 	public Transform head;
 	public Boolean invertedY = false;
 	public Rigidbody rb;
-	private float sensitivity = 1.0f;
+	public float sensitivity = 1.0f;
 	private Quaternion currentRotation;
 	
 
@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour {
 		if (invertedY) {
 			inverted = 1;
 		}
-		float xRot = Input.GetAxis("Mouse Y") * sensitivity * inverted + transform.eulerAngles.x;
+		float xRot = Input.GetAxis("Mouse Y") * sensitivity * inverted * Time.deltaTime + transform.eulerAngles.x;
 		if (xRot > 75 && xRot < 271) {
 			xRot = transform.eulerAngles.x;
 		}
@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour {
 		
 		// transform.up = Vector3.up;
 		transform.eulerAngles = new Vector3(xRot, transform.eulerAngles.y, transform.eulerAngles.z);
-		rb.transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * sensitivity, 0);
+		rb.transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0);
 
 	}
 }

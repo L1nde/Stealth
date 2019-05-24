@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Used: 0
-  Key: 102
+  Key: Interact2
   Description: Drink
   duration: 10
   emptyCup: {fileID: 4300002, guid: 98cff641a0a7eaa4f996de97899322de, type: 3}

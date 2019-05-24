@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour {
     public GameObject loseScreen;
     public Image CoffeeBuff;
     public GameObject PausePanel;
+    public GraphicRaycaster Raycaster;
+    public VirtualCursor VirtualCursor;
 
 	// Use this for initialization
 	void Awake () {
@@ -32,14 +34,17 @@ public class UIController : MonoBehaviour {
 	    interactablePic.gameObject.SetActive(false);
     }
 
+
     public void Pause() {
         if (PausePanel.activeInHierarchy) {
+            Raycaster.enabled = false;
             PausePanel.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
+            VirtualCursor.Disable();
         }
         else {
+            Raycaster.enabled = true;
             PausePanel.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+            VirtualCursor.Enable();
         }
     }
 
@@ -56,7 +61,7 @@ public class UIController : MonoBehaviour {
     }
 
     public void enableInteractable2(string key, string info) {
-        interactableText2Key.text = "[" + key + "]";
+        interactableText2Key.text = "[" + "E" + "]/B";
         interactableText2Info.text = " - " + info;
         interactableText2.gameObject.SetActive(true);
     }

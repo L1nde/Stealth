@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Consumable : MonoBehaviour {
     protected GameObject player;
     public bool Used;
-    public KeyCode Key = KeyCode.F;
+    public string Key = "Interact2";
     public string Description;
 
     void Start () {

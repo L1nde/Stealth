@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Used: 0
-  Key: 102
+  Key: Interact2
   Description: Use
   empty: {fileID: 4300000, guid: 08e2bc1b4d72e564686bef0c818a6270, type: 3}
 --- !u!54 &4221396668974920837

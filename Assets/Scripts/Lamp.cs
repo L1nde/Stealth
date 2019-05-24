@@ -31,7 +31,7 @@ public class Lamp : MonoBehaviour {
         }
     }
 
-    private void turnOn() {
+    public void turnOn() {
        // if (l != null) {
        //     l.gameObject.SetActive(true);
       //      if (darkness != null)
@@ -42,7 +42,7 @@ public class Lamp : MonoBehaviour {
         renderer.materials[1].SetColor("_EmissionColor", emissiveColor);
     }
 
-    private void turnOff() {
+    public void turnOff() {
      //   l.gameObject.SetActive(false);
     //    if (darkness != null)
       //      darkness.gameObject.SetActive(true);
